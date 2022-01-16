@@ -1,20 +1,17 @@
 import styled from 'styled-components';
 import { colors } from '../../styles/themes';
 
-console.log(colors.brand.default.color1);
-
 export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   height: 128px;
-  max-width: 1464px;
-  background: #ffffff;
-  padding: 40px 0px 40px 0px;
+  background: ${colors.neutrals.grey000};
+  padding: 40px 0px;
   width: '100%';
 `;
 
 export const AeroLogo = styled.img`
-  margin-left: 80px;
+  margin-left: 228px;
 `;
 
 export const AeroCoinsContainer = styled.div`
@@ -27,7 +24,7 @@ export const AeroCoinsContainer = styled.div`
   padding: 8px 16px;
   border: 1px solid #dae4f2;
   border-radius: 15px;
-  margin-right: 80px;
+  margin-right: 228px;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
 `;
 
