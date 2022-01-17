@@ -13,7 +13,7 @@ export const HeroLeftContainer = styled.div`
   justify-content: center;
   align-items: stretch;
   margin-left: 230px;
-  margin-top: 75px;
+  margin-top: 70px;
 `;
 
 export const HeroLeftTitleOne = styled.span`

@@ -53,7 +53,7 @@ export const typeStyles = {
       fontL2: {
         family: 'Montserrat',
         size: '48px',
-        weight: 'black',
+        weight: '900',
         lineHeight: '160px',
         letterSpacing: '0%',
         textStyle: 'All-caps',
@@ -61,7 +61,7 @@ export const typeStyles = {
       fontL3: {
         family: 'Montserrat',
         size: '32px',
-        weight: 'black',
+        weight: '900',
         lineHeight: '160px',
         letterSpacing: '0%',
         textStyle: 'All-caps',

@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Header from '../components/Header/Header';
 import Hero from '../components/Hero/Hero';
 import HeroCards from '../components/HeroCards/HeroCards';
+import Products from '../components/Products/Products';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <Hero />
       <HeroCards />
+      <Products />
     </div>
   );
 }
