@@ -12,7 +12,6 @@ import {
   HeroLeftButton,
   HeroLeftButtonIcon,
 } from './styles';
-import Image from 'next/image';
 
 const Hero = () => {
   return (

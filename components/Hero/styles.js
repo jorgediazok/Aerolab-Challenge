@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { colors, typeStyles } from '../../styles/themes';
 
-console.log(typeStyles.desktop.text.textL1Second);
-
 export const HeroContainer = styled.main`
   background: ${colors.neutrals.grey000};
   display: flex;
