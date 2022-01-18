@@ -71,7 +71,7 @@ export const typeStyles = {
       textL1First: {
         family: 'Montserrat',
         size: '18px',
-        weight: 'semibold',
+        weight: '600',
         lineHeight: '27px',
         letterSpacing: '0%',
         textStyle: 'none',

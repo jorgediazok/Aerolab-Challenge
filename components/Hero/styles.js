@@ -49,7 +49,7 @@ export const HeroLeftTitleThree = styled.h1`
   line-height: ${typeStyles.desktop.titles.fontL1.lineHeight};
   color: ${colors.neutrals.grey900};
   text-transform: uppercase;
-  margin-top: -140px;
+  margin-top: -120px;
 `;
 
 export const HeroLeftTitleFour = styled.p`

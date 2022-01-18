@@ -8,13 +8,13 @@ import {
   AeroChevron,
 } from './styles';
 
-const Header = () => {
+const Header = ({ user }) => {
   return (
     <HeaderContainer>
       <AeroLogo src='/assets/icons/aerolab-logo-1.svg' alt='' />
       <AeroCoinsContainer>
         <AeroPay src='/assets/icons/aeropay-1.svg' alt='' />
-        <AeroCoins>10.000</AeroCoins>
+        <AeroCoins>{user.points}</AeroCoins>
         <AeroChevron src='/assets/icons/chevron-default.svg' alt='' />
       </AeroCoinsContainer>
     </HeaderContainer>

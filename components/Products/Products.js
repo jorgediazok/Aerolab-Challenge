@@ -14,9 +14,11 @@ import {
   ProductsFilterPaginationIconOne,
   ProductsFilterPaginationPager,
   ProductsFilterPaginationIconTwo,
+  ProductsDataContainer,
 } from './styles';
+import Product from '../Product/Product';
 
-const Products = () => {
+const Products = ({ products, user }) => {
   return (
     <ProductsSectionContainer>
       <ProductsTitleContainer>
@@ -27,6 +29,10 @@ const Products = () => {
         <ProductFiltersText>Filter by:</ProductFiltersText>
         <ProductFiltersInput>
           <ProductFiltersInputOption>All Products</ProductFiltersInputOption>
+          <ProductFiltersInputOption>Gaming</ProductFiltersInputOption>
+          <ProductFiltersInputOption>Audio</ProductFiltersInputOption>
+          <ProductFiltersInputOption>Smart Home</ProductFiltersInputOption>
+          <ProductFiltersInputOption>Monitors & TV</ProductFiltersInputOption>
         </ProductFiltersInput>
         <ProductFiltersText>Sort by:</ProductFiltersText>
         <ProductsFilterSortSelectorSelected>
@@ -52,6 +58,11 @@ const Products = () => {
           />
         </ProductsFilterPaginationContainer>
       </ProductFiltersContainer>
+      <ProductsDataContainer>
+        {products.map((product) => (
+          <Product key={product._id} product={product} user={user} />
+        ))}
+      </ProductsDataContainer>
     </ProductsSectionContainer>
   );
 };

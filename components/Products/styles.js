@@ -140,3 +140,9 @@ export const ProductsFilterPaginationIconTwo = styled.img`
   margin-left: 2.4px;
   cursor: pointer;
 `;
+
+export const ProductsDataContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+`;
