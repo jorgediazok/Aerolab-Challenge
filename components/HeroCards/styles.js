@@ -23,7 +23,7 @@ export const IntroCard = styled.div`
   height: 676px;
   border-radius: 32px;
   padding: 12px;
-  background-color: #ffffff;
+  background-color: ${colors.neutrals.grey000};
   overflow: visible;
   border: 1px solid #dae4f2;
   box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.05);

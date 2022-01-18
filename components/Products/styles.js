@@ -70,7 +70,7 @@ export const ProductFiltersInput = styled.select`
   width: 256px;
   height: 59px;
   margin-right: 40px;
-  background-color: #ffffff;
+  background-color: ${colors.neutrals.grey000};
 `;
 
 export const ProductFiltersInputOption = styled.option``;

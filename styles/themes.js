@@ -1,7 +1,7 @@
 // COLORS
 export const colors = {
   neutrals: {
-    grey000: '#FFFFF',
+    grey000: '#FFFFFF',
     grey100: '#F5F9FF',
     grey200: '#E6EDF7',
     grey300: '#252F3D',

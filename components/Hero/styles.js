@@ -81,12 +81,12 @@ export const HeroLeftButton = styled.button`
   font-size: 18px;
   line-height: 150%;
   text-align: center;
-  color: #ffffff;
+  color: ${colors.neutrals.grey000};
   border: none;
 `;
 
 export const HeroLeftButtonIcon = styled.img`
-  color: #ffffff !important;
+  color: ${colors.neutrals.grey000} !important;
   font-size: 54px;
   width: 14.25px;
   height: 17.85px;
@@ -96,6 +96,7 @@ export const HeroLeftButtonIcon = styled.img`
 export const HeroRightContainer = styled.div`
   margin-right: 230px;
   margin-top: -100px;
+  z-index: 0;
 `;
 
 export const HeroImageBackground = styled.div`

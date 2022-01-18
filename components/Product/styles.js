@@ -81,7 +81,7 @@ export const ProductCardCTA = styled.button`
   line-height: ${typeStyles.desktop.text.textL1First.lineHeight};
   font-size: ${typeStyles.desktop.text.textL1First.size};
   font-weight: ${typeStyles.desktop.text.textL1First.weight};
-  color: #ffffff;
+  color: ${colors.neutrals.grey000};
   cursor: pointer;
 `;
 
