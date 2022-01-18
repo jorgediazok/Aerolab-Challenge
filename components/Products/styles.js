@@ -55,7 +55,8 @@ export const ProductFiltersText = styled.span`
   font-size: ${typeStyles.desktop.text.textL1First.size};
   line-height: ${typeStyles.desktop.text.textL1First.lineHeight};
   color: ${colors.neutrals.grey600};
-  margin-right: 16px;
+  margin-right: 15px;
+  width: 86px;
 `;
 
 export const ProductFiltersInput = styled.select`
@@ -69,6 +70,7 @@ export const ProductFiltersInput = styled.select`
   width: 256px;
   height: 59px;
   margin-right: 40px;
+  background-color: #ffffff;
 `;
 
 export const ProductFiltersInputOption = styled.option``;
@@ -79,12 +81,14 @@ export const ProductsFilterSortSelectorSelected = styled.button`
   justify-content: center;
   align-items: center;
   padding: 8px 24px;
-  width: 129px;
+  width: 165px;
   height: 43px;
   background: linear-gradient(102.47deg, #176feb -5.34%, #ff80ff 106.58%);
   border-radius: 12px;
   border: none;
   margin-right: 12px;
+  font-size: 18px;
+  color: ${colors.neutrals.grey100};
 `;
 
 export const ProductsFilterSortSelectorNotSelected = styled.button`
@@ -97,29 +101,22 @@ export const ProductsFilterSortSelectorNotSelected = styled.button`
   height: 43px;
   background: #e6f0ff;
   border-radius: 12px;
+  font-size: 18px;
   border: none;
   margin-right: 12px;
+  color: linear-gradient(102.47deg, #176feb -5.34%, #ff80ff 106.58%);
+  background-size: 100%;
 `;
 
 export const ProductsFilterPaginationContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 70px;
+  width: 220px;
+  height: 60px;
   border: 1px solid #dae4f2;
   border-radius: 16px;
   margin-left: 250px;
-`;
-
-export const ProductsFilterPaginationIconOne = styled.img`
-  margin-right: 2.4px;
-  padding: 8px;
-  background: #e6edf7;
-  border-radius: 8px;
-  transform: rotate(-180deg);
-  opacity: 0.5;
-  cursor: pointer;
 `;
 
 export const ProductsFilterPaginationPager = styled.p`
@@ -129,15 +126,22 @@ export const ProductsFilterPaginationPager = styled.p`
   font-size: ${typeStyles.desktop.text.textL1First.size};
   line-height: ${typeStyles.desktop.text.textL1First.lineHeight};
   color: ${colors.neutrals.grey600};
-  margin-left: 2.4px;
-  margin-right: 2.4px;
+`;
+
+export const ProductsFilterPaginationIconOne = styled.img`
+  margin-right: 10px;
+  padding: 8px;
+  background: #e6edf7;
+  border-radius: 8px;
+  transform: rotate(-180deg);
+  cursor: pointer;
 `;
 
 export const ProductsFilterPaginationIconTwo = styled.img`
   background: #e5f0ff;
   border-radius: 8px;
   padding: 8px;
-  margin-left: 2.4px;
+  margin-left: 10px;
   cursor: pointer;
 `;
 
@@ -145,4 +149,41 @@ export const ProductsDataContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+`;
+
+export const ProductsBottomPagination = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 60px;
+`;
+
+export const ProductsBottomCounterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ProductsBottomCounter = styled.p`
+  font-family: ${typeStyles.desktop.text.textL1First.family};
+  font-style: normal;
+  font-weight: ${typeStyles.desktop.text.textL1First.weight};
+  font-size: ${typeStyles.desktop.text.textL1First.size};
+  line-height: ${typeStyles.desktop.text.textL1First.lineHeight};
+  color: ${colors.neutrals.grey600};
+  margin-left: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ProductsBottomCounterSpan = styled.span`
+  font-family: ${typeStyles.desktop.text.textL1First.family};
+  font-style: normal;
+  font-weight: ${typeStyles.desktop.text.textL1First.weight};
+  font-size: ${typeStyles.desktop.text.textL1First.size};
+  line-height: ${typeStyles.desktop.text.textL1First.lineHeight};
 `;

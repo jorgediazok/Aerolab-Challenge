@@ -15,10 +15,38 @@ import {
   ProductsFilterPaginationPager,
   ProductsFilterPaginationIconTwo,
   ProductsDataContainer,
+  ProductsBottomPagination,
+  ProductsBottomCounter,
+  ProductsBottomCounterSpan,
 } from './styles';
 import Product from '../Product/Product';
 
-const Products = ({ products, user }) => {
+const Products = ({
+  products,
+  user,
+  loading,
+  setLoading,
+  currentPage,
+  setCurrentPage,
+  productsPerPage,
+  totalProducts,
+}) => {
+  const prevPage = () => {
+    if (currentPage <= 1) {
+      return;
+    } else {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const nextPage = () => {
+    if (currentPage >= 2) {
+      return;
+    } else {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
   return (
     <ProductsSectionContainer>
       <ProductsTitleContainer>
@@ -48,13 +76,17 @@ const Products = ({ products, user }) => {
           <ProductsFilterPaginationIconOne
             src='/assets/icons/chevron-default.svg'
             alt=''
+            onClick={prevPage}
+            style={{ opacity: `${currentPage === 1 ? '0.5' : 1}` }}
           />
           <ProductsFilterPaginationPager>
-            Page 1 of 2
+            Page {currentPage} of 2
           </ProductsFilterPaginationPager>
           <ProductsFilterPaginationIconTwo
             src='/assets/icons/chevron-active.svg'
             alt=''
+            onClick={nextPage}
+            style={{ opacity: `${currentPage === 2 ? '0.5' : 1}` }}
           />
         </ProductsFilterPaginationContainer>
       </ProductFiltersContainer>
@@ -63,6 +95,33 @@ const Products = ({ products, user }) => {
           <Product key={product._id} product={product} user={user} />
         ))}
       </ProductsDataContainer>
+      <ProductsBottomPagination>
+        <ProductsBottomCounter>
+          <ProductsBottomCounterSpan
+            style={{ marginRight: '10px', color: '#1667D9' }}
+          >
+            {productsPerPage} of {totalProducts}
+          </ProductsBottomCounterSpan>
+          products
+        </ProductsBottomCounter>
+        <ProductsFilterPaginationContainer>
+          <ProductsFilterPaginationIconOne
+            src='/assets/icons/chevron-default.svg'
+            alt=''
+            onClick={prevPage}
+            style={{ opacity: `${currentPage === 1 ? '0.5' : 1}` }}
+          />
+          <ProductsFilterPaginationPager>
+            Page {currentPage} of 2
+          </ProductsFilterPaginationPager>
+          <ProductsFilterPaginationIconTwo
+            src='/assets/icons/chevron-active.svg'
+            alt=''
+            onClick={nextPage}
+            style={{ opacity: `${currentPage === 2 ? '0.5' : 1}` }}
+          />
+        </ProductsFilterPaginationContainer>
+      </ProductsBottomPagination>
     </ProductsSectionContainer>
   );
 };

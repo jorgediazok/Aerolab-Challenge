@@ -1,12 +1,23 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import Header from '../components/Header/Header';
 import Hero from '../components/Hero/Hero';
 import HeroCards from '../components/HeroCards/HeroCards';
 import Products from '../components/Products/Products';
+import Footer from '../components/Footer/Footer';
 
 export default function Home({ products, user }) {
-  console.log(products);
-  console.log(user);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(16);
+
+  //GET CURRENT PRODUCTS
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = products.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
 
   return (
     <div>
@@ -18,7 +29,17 @@ export default function Home({ products, user }) {
       <Header user={user} />
       <Hero />
       <HeroCards />
-      <Products products={products} user={user} />
+      <Products
+        products={currentProducts}
+        user={user}
+        loading={loading}
+        setLoading={setLoading}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        productsPerPage={productsPerPage}
+        totalProducts={products.length}
+      />
+      <Footer />
     </div>
   );
 }
