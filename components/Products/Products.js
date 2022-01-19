@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ProductsSectionContainer,
   ProductsTitleContainer,
@@ -7,8 +7,9 @@ import {
   ProductFiltersContainer,
   ProductFiltersText,
   ProductFiltersInput,
-  ProductsFilterSortSelectorSelected,
-  ProductsFilterSortSelectorNotSelected,
+  ProductsFilterSortSelectorSelectedOne,
+  ProductsFilterSortSelectorSelectedTwo,
+  ProductsFilterSortSelectorSelectedThree,
   ProductFiltersInputOption,
   ProductsFilterPaginationContainer,
   ProductsFilterPaginationIconOne,
@@ -21,21 +22,42 @@ import {
 } from './styles';
 import Product from '../Product/Product';
 
-const Products = ({
-  products,
-  user,
-  loading,
-  setLoading,
-  currentPage,
-  setCurrentPage,
-  productsPerPage,
-  totalProducts,
-}) => {
+const Products = ({ products, user, totalProducts }) => {
+  //CATEGORIES ARRAY
+  const categories = [
+    'All Products',
+    'Audio',
+    'Cameras',
+    'Drones',
+    'Gaming',
+    'Laptops',
+    'Monitors & TV',
+    'PC Accesories',
+    'PC Accessories',
+    'Phones',
+    'Phone Accessories',
+    'Smart Home',
+    'Tablets & E-readers',
+  ];
+
+  //PAGINATION
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // GET CURRENT PRODUCTS
+
+  const [slicedProducts] = useState(products.slice(0, 16));
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+  const [filteredProducts, setFilteredProducts] = useState(slicedProducts);
+  const [filterIsActive, setFilterIsActive] = useState(false);
+  const [filterIsActiveTwo, setFilterIsActiveTwo] = useState(false);
+  const [filterIsActiveThree, setFilterIsActiveThree] = useState(false);
+
   const prevPage = () => {
     if (currentPage <= 1) {
       return;
     } else {
       setCurrentPage(currentPage - 1);
+      setFilteredProducts(products.slice(0, 16));
     }
   };
 
@@ -44,7 +66,68 @@ const Products = ({
       return;
     } else {
       setCurrentPage(currentPage + 1);
+      setFilteredProducts(products.slice(16, 32));
     }
+  };
+
+  useEffect(() => {
+    setFilterIsActive(true);
+  }, []);
+
+  const sortByMostRecent = (e) => {
+    if (e.target.name === 'mostRecent') {
+      setFilterIsActiveTwo(false);
+      setFilterIsActiveThree(false);
+      const prods = products.map((product) => product);
+
+      setFilteredProducts(prods);
+      setFilterIsActive(true);
+    }
+  };
+
+  const sortByLowestPrice = (e) => {
+    if (e.target.name === 'lowestPrice') {
+      setFilterIsActive(false);
+      setFilterIsActiveThree(false);
+      const sortedProducts = slicedProducts
+        .map((product) => product)
+        .sort((a, b) =>
+          a.cost
+            .toString()
+            .localeCompare(b.cost.toString(), undefined, { numeric: true })
+        );
+
+      setFilteredProducts(sortedProducts);
+      setFilterIsActiveTwo(true);
+    }
+  };
+
+  const sortByHighestPrice = (e) => {
+    if (e.target.name === 'highestPrice') {
+      setFilterIsActive(false);
+      setFilterIsActiveTwo(false);
+      const sortedProducts = slicedProducts
+        .map((product) => product)
+        .sort((a, b) =>
+          a.cost
+            .toString()
+            .localeCompare(b.cost.toString(), undefined, { numeric: true })
+        )
+        .reverse();
+
+      setFilteredProducts(sortedProducts);
+      setFilterIsActiveThree(true);
+    }
+  };
+
+  const sortByCategory = () => {
+    // products.filter(product => selectedCategory==="All" || product.category===selectedCategory)
+    const filtered = products.filter(
+      (product) =>
+        selectedCategory === 'All Products' ||
+        product.category === selectedCategory
+    );
+    setFilteredProducts(filtered);
   };
 
   return (
@@ -55,23 +138,65 @@ const Products = ({
       </ProductsTitleContainer>
       <ProductFiltersContainer>
         <ProductFiltersText>Filter by:</ProductFiltersText>
-        <ProductFiltersInput>
-          <ProductFiltersInputOption>All Products</ProductFiltersInputOption>
-          <ProductFiltersInputOption>Gaming</ProductFiltersInputOption>
-          <ProductFiltersInputOption>Audio</ProductFiltersInputOption>
-          <ProductFiltersInputOption>Smart Home</ProductFiltersInputOption>
-          <ProductFiltersInputOption>Monitors & TV</ProductFiltersInputOption>
+        <ProductFiltersInput
+          onChange={(e) => setSelectedCategory(e.target.value)}
+          onClick={sortByCategory}
+        >
+          {categories.map((category, index) => (
+            <ProductFiltersInputOption key={index}>
+              {category}
+            </ProductFiltersInputOption>
+          ))}
         </ProductFiltersInput>
         <ProductFiltersText>Sort by:</ProductFiltersText>
-        <ProductsFilterSortSelectorSelected>
+        <ProductsFilterSortSelectorSelectedOne
+          name='mostRecent'
+          onClick={sortByMostRecent}
+          isActive={
+            filterIsActive
+              ? `linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%);`
+              : '#E6F0FF'
+          }
+          isColorActive={
+            filterIsActive
+              ? '#f5f9ff'
+              : `linear-gradient(102.47deg, #176feb -5.34%, #ff80ff 106.58%)`
+          }
+        >
           Most Recent
-        </ProductsFilterSortSelectorSelected>
-        <ProductsFilterSortSelectorNotSelected>
+        </ProductsFilterSortSelectorSelectedOne>
+        <ProductsFilterSortSelectorSelectedTwo
+          name='lowestPrice'
+          onClick={sortByLowestPrice}
+          isActiveTwo={
+            filterIsActiveTwo
+              ? `linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%);`
+              : '#E6F0FF;'
+          }
+          isColorActiveTwo={
+            filterIsActiveTwo
+              ? '#f5f9ff'
+              : `linear-gradient(102.47deg, #176feb -5.34%, #ff80ff 106.58%)`
+          }
+        >
           Lowest Price
-        </ProductsFilterSortSelectorNotSelected>
-        <ProductsFilterSortSelectorNotSelected>
+        </ProductsFilterSortSelectorSelectedTwo>
+        <ProductsFilterSortSelectorSelectedThree
+          name='highestPrice'
+          onClick={sortByHighestPrice}
+          isActiveThree={
+            filterIsActiveThree
+              ? `linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%);`
+              : '#E6F0FF'
+          }
+          isColorActiveThree={
+            filterIsActiveThree
+              ? '#f5f9ff'
+              : `linear-gradient(102.47deg, #176feb -5.34%, #ff80ff 106.58%)`
+          }
+        >
           Highest Price
-        </ProductsFilterSortSelectorNotSelected>
+        </ProductsFilterSortSelectorSelectedThree>
         <ProductsFilterPaginationContainer>
           <ProductsFilterPaginationIconOne
             src='/assets/icons/chevron-default.svg'
@@ -91,7 +216,7 @@ const Products = ({
         </ProductsFilterPaginationContainer>
       </ProductFiltersContainer>
       <ProductsDataContainer>
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <Product key={product._id} product={product} user={user} />
         ))}
       </ProductsDataContainer>
@@ -100,7 +225,7 @@ const Products = ({
           <ProductsBottomCounterSpan
             style={{ marginRight: '10px', color: '#1667D9' }}
           >
-            {productsPerPage} of {totalProducts}
+            {currentPage === 1 ? 16 : 32} of {totalProducts}
           </ProductsBottomCounterSpan>
           products
         </ProductsBottomCounter>

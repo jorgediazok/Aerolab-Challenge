@@ -75,23 +75,7 @@ export const ProductFiltersInput = styled.select`
 
 export const ProductFiltersInputOption = styled.option``;
 
-export const ProductsFilterSortSelectorSelected = styled.button`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 24px;
-  width: 165px;
-  height: 43px;
-  background: linear-gradient(102.47deg, #176feb -5.34%, #ff80ff 106.58%);
-  border-radius: 12px;
-  border: none;
-  margin-right: 12px;
-  font-size: 18px;
-  color: ${colors.neutrals.grey100};
-`;
-
-export const ProductsFilterSortSelectorNotSelected = styled.button`
+export const ProductsFilterSortSelectorSelectedOne = styled.button`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -99,13 +83,44 @@ export const ProductsFilterSortSelectorNotSelected = styled.button`
   padding: 8px 24px;
   width: 166px;
   height: 43px;
-  background: #e6f0ff;
+  background: ${(props) => props.isActive};
   border-radius: 12px;
-  font-size: 18px;
   border: none;
   margin-right: 12px;
-  color: linear-gradient(102.47deg, #176feb -5.34%, #ff80ff 106.58%);
-  background-size: 100%;
+  font-size: 18px;
+  color: ${(props) => props.isColorActive};
+`;
+
+export const ProductsFilterSortSelectorSelectedTwo = styled.button`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+  width: 166px;
+  height: 43px;
+  background: ${(props) => props.isActiveTwo};
+  border-radius: 12px;
+  border: none;
+  margin-right: 12px;
+  font-size: 18px;
+  color: ${(props) => props.isColorActiveTwo};
+`;
+
+export const ProductsFilterSortSelectorSelectedThree = styled.button`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+  width: 166px;
+  height: 43px;
+  background: ${(props) => props.isActiveThree};
+  border-radius: 12px;
+  border: none;
+  margin-right: 12px;
+  font-size: 18px;
+  color: ${(props) => props.isColorActiveThree};
 `;
 
 export const ProductsFilterPaginationContainer = styled.div`

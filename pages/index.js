@@ -9,16 +9,6 @@ import Footer from '../components/Footer/Footer';
 export default function Home({ products, user }) {
   const [loading, setLoading] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(16);
-
-  //GET CURRENT PRODUCTS
-  const indexOfLastProduct = currentPage * productsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct
-  );
 
   return (
     <div>
@@ -35,13 +25,10 @@ export default function Home({ products, user }) {
       <Hero />
       <HeroCards />
       <Products
-        products={currentProducts}
+        products={products}
         user={user}
         loading={loading}
         setLoading={setLoading}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        productsPerPage={productsPerPage}
         totalProducts={products.length}
       />
       <Footer />

@@ -203,12 +203,7 @@ export const ModalBottomCoinsNotSelected = styled.button`
   border-radius: 12px;
   width: 85.33px;
   height: 35px;
-  background: linear-gradient(45deg, #176feb, #ff80ff);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
+  background: #e6f0ff;
   cursor: pointer;
 `;
 
