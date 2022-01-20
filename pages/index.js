@@ -6,9 +6,11 @@ import HeroCards from '../components/HeroCards/HeroCards';
 import Products from '../components/Products/Products';
 import Footer from '../components/Footer/Footer';
 
-export default function Home({ products, user }) {
+export default function Home({ products, user, history, redeem, points }) {
   const [loading, setLoading] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  console.log(redeem);
 
   return (
     <div>
@@ -21,6 +23,9 @@ export default function Home({ products, user }) {
         user={user}
         modalIsOpen={modalIsOpen}
         setModalIsOpen={setModalIsOpen}
+        history={history}
+        redeem={redeem}
+        points={points}
       />
       <Hero />
       <HeroCards />
@@ -30,15 +35,17 @@ export default function Home({ products, user }) {
         loading={loading}
         setLoading={setLoading}
         totalProducts={products.length}
+        points={points}
+        history={history}
       />
       <Footer />
     </div>
   );
 }
 
-//GET PRODUCTS && USER
+//GET PRODUCTS, USER & HISTORY - POST POINTS & REDEEMS
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ amount, productId }) {
   const res = await fetch('https://coding-challenge-api.aerolab.co/products', {
     headers: {
       'Content-Type': 'application/json',
@@ -58,8 +65,48 @@ export async function getServerSideProps() {
     }
   );
 
-  const products = await res.json();
-  const user = await resUser.json();
+  const resHistory = await fetch(
+    'https://coding-challenge-api.aerolab.co/user/history',
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: `Bearer ${process.env.REACT_APP_AEROLAB_TOKEN}`,
+      },
+    }
+  );
 
-  return { props: { products, user } };
+  const postRedeem = await fetch(
+    'https://coding-challenge-api.aerolab.co/redeem',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: `Bearer ${process.env.REACT_APP_AEROLAB_TOKEN}`,
+      },
+      body: JSON.stringify({ productId }),
+    }
+  );
+
+  const postUserPoints = await fetch(
+    'https://coding-challenge-api.aerolab.co/user/points',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: `Bearer ${process.env.REACT_APP_AEROLAB_TOKEN}`,
+      },
+      body: JSON.stringify({ amount }),
+    }
+  );
+
+  const products = await res.json(); //GET
+  const user = await resUser.json(); //GET
+  const history = await resHistory.json(); //GET
+  const redeem = await postRedeem.json(); //POST
+  const points = await postUserPoints.json(); //POST
+
+  return { props: { products, user, history, redeem, points } };
 }

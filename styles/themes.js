@@ -34,6 +34,7 @@ export const colors = {
 export const breakpoints = {
   mobile: { breakpoint: 375 },
   tablet: { breakpoint: 1024 },
+  notebook: { breakpoint: 1200 },
   desktop: { breakpoint: 1920 },
 };
 

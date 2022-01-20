@@ -17,10 +17,62 @@ export const ProductCard = styled.div`
 `;
 
 export const ProductCardTop = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 344.92px;
+`;
+
+export const ProductCardRedeemOnHover = styled.div`
+  position: absolute;
+  top: 0;
+  left: -45px;
+  right: -45px;
+  opacity: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px 16px 0px 0px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: ${colors.neutrals.grey000};
+  &:hover {
+    opacity: 1;
+    transition: all 0.2s ease-in;
+  }
+`;
+
+export const ProductCardRedeemOnHoverButton = styled.button`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  width: 248px;
+  border: none;
+  height: 59px;
+  background: linear-gradient(
+    102.47deg,
+    rgba(23, 111, 235, 0.7) -5.34%,
+    rgba(255, 128, 255, 0.7) 106.58%
+  );
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  margin-top: 16px;
+  font-family: ${typeStyles.desktop.text.textL1First.family};
+  line-height: ${typeStyles.desktop.text.textL1First.lineHeight};
+  font-size: ${typeStyles.desktop.text.textL1First.size};
+  font-weight: ${typeStyles.desktop.text.textL1First.weight};
+  color: ${colors.neutrals.grey000};
+  opacity: 1 !important;
+  cursor: pointer;
+  &:disabled {
+    background: ${colors.neutrals.grey200};
+    color: ${colors.neutrals.grey600};
+    opacity: 0.3;
+  }
 `;
 
 export const ProductCardImage = styled.img``;

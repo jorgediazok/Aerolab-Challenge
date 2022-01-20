@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { animateScroll as scroll, Link as ScrollLink } from 'react-scroll';
 import {
   HeroContainer,
   HeroLeftContainer,
@@ -14,8 +15,23 @@ import {
 } from './styles';
 
 const Hero = () => {
+  const [scrollNav, setScrollNav] = useState(false);
+
+  //SMOOTH SCROLLING
+  const changeNav = () => {
+    if (window.scrollY >= 80) {
+      setScrollNav(true);
+    } else {
+      setScrollNav(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', changeNav);
+  }, []);
+
   return (
-    <HeroContainer>
+    <HeroContainer scrollnav={scrollNav.toString()}>
       <HeroLeftContainer>
         <HeroLeftTitleOne>Explore the</HeroLeftTitleOne>
         <HeroLeftTitleTwo>Tech</HeroLeftTitleTwo>
@@ -24,10 +40,21 @@ const Hero = () => {
           Here you&apos;ll be able to exchange all of your hard-earned
           Aeropoints and exchange them for cool tech.
         </HeroLeftTitleFour>
-        <HeroLeftButton>
-          View all Products{' '}
-          <HeroLeftButtonIcon src='/assets/icons/chevron-default2.svg' alt='' />
-        </HeroLeftButton>
+        <ScrollLink
+          to='productos'
+          smooth='true'
+          duration={500}
+          exact='true'
+          offset={-80}
+        >
+          <HeroLeftButton>
+            View all Products{' '}
+            <HeroLeftButtonIcon
+              src='/assets/icons/chevron-default2.svg'
+              alt=''
+            />
+          </HeroLeftButton>
+        </ScrollLink>
       </HeroLeftContainer>
       <HeroRightContainer>
         <HeroImageBackground />

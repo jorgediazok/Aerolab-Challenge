@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   ProductCard,
   ProductCardTop,
@@ -9,13 +9,42 @@ import {
   ProductCardCTA,
   ProductCardCTAIcon,
   ProductCardCTADisabled,
+  ProductCardRedeemOnHover,
+  ProductCardRedeemOnHoverButton,
 } from './styles';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const Product = ({ product, user }) => {
+const Product = ({ product, user, redeem, history, points }) => {
+  const [redeemProduct, setRedeemProduct] = useState(history);
+  const notifySuccess = () => toast.success('Bought product succesfully!');
+  const notifyErrorFailed = () => toast.error('Error. Please try again.');
+
+  const handleRedeemProduct = async (id) => {
+    if (user.points < product.cost) {
+      return;
+    }
+    notifySuccess();
+  };
+
   return (
     <ProductCard>
       <ProductCardTop>
         <ProductCardImage src={product.img.url} alt='' />
+        <ProductCardRedeemOnHover>
+          {user.points < product.cost ? (
+            <ProductCardRedeemOnHoverButton
+              onClick={handleRedeemProduct}
+              disabled
+            >
+              BUY {product.cost - user.points} COINS
+            </ProductCardRedeemOnHoverButton>
+          ) : (
+            <ProductCardRedeemOnHoverButton onClick={handleRedeemProduct}>
+              REDEEM NOW!
+            </ProductCardRedeemOnHoverButton>
+          )}
+        </ProductCardRedeemOnHover>
       </ProductCardTop>
       <ProductCardDetails>
         <ProductCardTitle>{product.name}</ProductCardTitle>

@@ -22,7 +22,14 @@ import {
 } from './styles';
 import Product from '../Product/Product';
 
-const Products = ({ products, user, totalProducts }) => {
+const Products = ({
+  products,
+  user,
+  totalProducts,
+  redeem,
+  history,
+  points,
+}) => {
   //CATEGORIES ARRAY
   const categories = [
     'All Products',
@@ -45,9 +52,10 @@ const Products = ({ products, user, totalProducts }) => {
 
   // GET CURRENT PRODUCTS
 
-  const [slicedProducts] = useState(products.slice(0, 16));
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-  const [filteredProducts, setFilteredProducts] = useState(slicedProducts);
+  const [filteredProducts, setFilteredProducts] = useState(
+    products.slice(0, 16)
+  );
   const [filterIsActive, setFilterIsActive] = useState(false);
   const [filterIsActiveTwo, setFilterIsActiveTwo] = useState(false);
   const [filterIsActiveThree, setFilterIsActiveThree] = useState(false);
@@ -57,16 +65,24 @@ const Products = ({ products, user, totalProducts }) => {
       return;
     } else {
       setCurrentPage(currentPage - 1);
-      setFilteredProducts(products.slice(0, 16));
+      setFilteredProducts(
+        filteredProducts <= 16
+          ? filteredProducts.slice(0, 16)
+          : products.slice(0, 16)
+      );
     }
   };
 
   const nextPage = () => {
-    if (currentPage >= 2) {
+    if (currentPage >= 2 || filteredProducts.length < 16) {
       return;
     } else {
       setCurrentPage(currentPage + 1);
-      setFilteredProducts(products.slice(16, 32));
+      setFilteredProducts(
+        filteredProducts > 16
+          ? filteredProducts.slice(16, 32)
+          : products.slice(16, 32)
+      );
     }
   };
 
@@ -89,7 +105,7 @@ const Products = ({ products, user, totalProducts }) => {
     if (e.target.name === 'lowestPrice') {
       setFilterIsActive(false);
       setFilterIsActiveThree(false);
-      const sortedProducts = slicedProducts
+      const sortedProducts = products
         .map((product) => product)
         .sort((a, b) =>
           a.cost
@@ -97,7 +113,11 @@ const Products = ({ products, user, totalProducts }) => {
             .localeCompare(b.cost.toString(), undefined, { numeric: true })
         );
 
-      setFilteredProducts(sortedProducts);
+      setFilteredProducts(
+        currentPage === 1
+          ? sortedProducts.slice(0, 16)
+          : sortedProducts.slice(16, 32)
+      );
       setFilterIsActiveTwo(true);
     }
   };
@@ -106,7 +126,7 @@ const Products = ({ products, user, totalProducts }) => {
     if (e.target.name === 'highestPrice') {
       setFilterIsActive(false);
       setFilterIsActiveTwo(false);
-      const sortedProducts = slicedProducts
+      const sortedProducts = products
         .map((product) => product)
         .sort((a, b) =>
           a.cost
@@ -115,19 +135,22 @@ const Products = ({ products, user, totalProducts }) => {
         )
         .reverse();
 
-      setFilteredProducts(sortedProducts);
+      setFilteredProducts(
+        currentPage === 1
+          ? sortedProducts.slice(0, 16)
+          : sortedProducts.slice(16, 32)
+      );
       setFilterIsActiveThree(true);
     }
   };
 
   const sortByCategory = () => {
-    // products.filter(product => selectedCategory==="All" || product.category===selectedCategory)
     const filtered = products.filter(
       (product) =>
         selectedCategory === 'All Products' ||
         product.category === selectedCategory
     );
-    setFilteredProducts(filtered);
+    setFilteredProducts(filtered.slice(0, 16));
   };
 
   return (
@@ -205,19 +228,31 @@ const Products = ({ products, user, totalProducts }) => {
             style={{ opacity: `${currentPage === 1 ? '0.5' : 1}` }}
           />
           <ProductsFilterPaginationPager>
-            Page {currentPage} of 2
+            Page {filteredProducts.length < 16 ? 1 : currentPage} of{' '}
+            {filteredProducts.length >= 16 ? 2 : 1}
           </ProductsFilterPaginationPager>
           <ProductsFilterPaginationIconTwo
             src='/assets/icons/chevron-active.svg'
             alt=''
             onClick={nextPage}
-            style={{ opacity: `${currentPage === 2 ? '0.5' : 1}` }}
+            style={{
+              opacity: `${
+                currentPage === 2 || filteredProducts.length < 16 ? '0.5' : 1
+              }`,
+            }}
           />
         </ProductsFilterPaginationContainer>
       </ProductFiltersContainer>
-      <ProductsDataContainer>
+      <ProductsDataContainer id='productos'>
         {filteredProducts.map((product) => (
-          <Product key={product._id} product={product} user={user} />
+          <Product
+            key={product._id}
+            product={product}
+            user={user}
+            redeem={redeem}
+            history={history}
+            points={points}
+          />
         ))}
       </ProductsDataContainer>
       <ProductsBottomPagination>
@@ -225,7 +260,7 @@ const Products = ({ products, user, totalProducts }) => {
           <ProductsBottomCounterSpan
             style={{ marginRight: '10px', color: '#1667D9' }}
           >
-            {currentPage === 1 ? 16 : 32} of {totalProducts}
+            {filteredProducts.length} of {totalProducts}
           </ProductsBottomCounterSpan>
           products
         </ProductsBottomCounter>
@@ -237,7 +272,8 @@ const Products = ({ products, user, totalProducts }) => {
             style={{ opacity: `${currentPage === 1 ? '0.5' : 1}` }}
           />
           <ProductsFilterPaginationPager>
-            Page {currentPage} of 2
+            Page {filteredProducts.length < 16 ? 1 : currentPage} of{' '}
+            {filteredProducts.length >= 16 ? 2 : 1}
           </ProductsFilterPaginationPager>
           <ProductsFilterPaginationIconTwo
             src='/assets/icons/chevron-active.svg'

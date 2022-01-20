@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { colors, typeStyles } from '../../styles/themes';
+import { breakpoints } from '../../styles/themes';
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -8,6 +9,10 @@ export const HeaderContainer = styled.header`
   background: ${colors.neutrals.grey000};
   padding: 40px 0px;
   width: '100%';
+
+  @media screen and (max-width: 375px) {
+    padding: 40px 20px;
+  }
 `;
 
 export const AeroLogo = styled.img`
@@ -177,7 +182,7 @@ export const ModalBottomCoinsContainer = styled.div`
   width: 264px;
 `;
 
-export const ModalBottomCoinsSelected = styled.button`
+export const ModalBottomCoinsSelectedOne = styled.button`
   border: none;
   display: flex;
   flex-direction: row;
@@ -186,24 +191,39 @@ export const ModalBottomCoinsSelected = styled.button`
   padding: 4px 16px;
   width: 85.33px;
   height: 35px;
-  background: linear-gradient(102.47deg, #176feb -5.34%, #ff80ff 106.58%);
   border-radius: 12px;
-  color: ${colors.neutrals.grey000};
+  background: ${(props) => props.isActive};
+  color: ${(props) => props.isColorActive};
   cursor: pointer;
 `;
 
-export const ModalBottomCoinsNotSelected = styled.button`
+export const ModalBottomCoinsSelectedTwo = styled.button`
+  border: none;
+  display: flex;
+  flex-direction: row;
+  background: ${(props) => props.isActive};
+  justify-content: center;
+  align-items: center;
+  padding: 4px 16px;
+  width: 85.33px;
+  height: 35px;
+  border-radius: 12px;
+  color: ${(props) => props.isColorActive};
+  cursor: pointer;
+`;
+
+export const ModalBottomCoinsSelectedThree = styled.button`
+  border: none;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 4px 16px;
-  background: #e6f0ff;
-  border: 1px solid #dae4f2;
-  border-radius: 12px;
   width: 85.33px;
   height: 35px;
-  background: #e6f0ff;
+  background: ${(props) => props.isActive};
+  border-radius: 12px;
+  color: ${(props) => props.isColorActive};
   cursor: pointer;
 `;
 

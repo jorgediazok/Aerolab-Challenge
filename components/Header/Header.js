@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   HeaderContainer,
   AeroLogo,
@@ -22,13 +22,65 @@ import {
   ModalImageBottomRight,
   ModalImagePattern,
   ModalBottomCoinsContainer,
-  ModalBottomCoinsSelected,
-  ModalBottomCoinsNotSelected,
+  ModalBottomCoinsSelectedOne,
+  ModalBottomCoinsSelectedTwo,
+  ModalBottomCoinsSelectedThree,
   ModalBottomAddCoinsIcon,
   ModalBottomAddCoins,
 } from './styles';
 
-const Header = ({ user, modalIsOpen, setModalIsOpen }) => {
+const Header = ({
+  user,
+  modalIsOpen,
+  setModalIsOpen,
+  history,
+  redeem,
+  points,
+}) => {
+  //STATES
+  const [coinOneIsActive, setCoinOneIsActive] = useState(false);
+  const [coinTwoIsActive, setCoinTwoIsActive] = useState(false);
+  const [coinThreeIsActive, setCoinThreeIsActive] = useState(false);
+  const [redeemHistory, setRedeemHistory] = useState([]);
+  const [coinsAccum, setCoinsAccum] = useState([]);
+
+  console.log(history);
+
+  //ADD COINS
+
+  const reducedCoins = coinsAccum.reduce((acc, num) => {
+    return parseInt(acc) + parseInt(num);
+  }, 0);
+
+  useEffect(() => {
+    setCoinThreeIsActive(true);
+  }, []);
+
+  const handleCoinOne = (e) => {
+    setCoinTwoIsActive(false);
+    setCoinThreeIsActive(false);
+    setCoinOneIsActive(true);
+    setCoinsAccum([...coinsAccum, e.target.value]);
+  };
+
+  const handleCoinTwo = (e) => {
+    setCoinOneIsActive(false);
+    setCoinThreeIsActive(false);
+    setCoinTwoIsActive(true);
+    setCoinsAccum([...coinsAccum, e.target.value]);
+  };
+
+  const handleCoinThree = (e) => {
+    setCoinOneIsActive(false);
+    setCoinTwoIsActive(false);
+    setCoinThreeIsActive(true);
+    setCoinsAccum([...coinsAccum, e.target.value]);
+  };
+
+  const handleAddCoins = () => {
+    alert(`Agregaste ${reducedCoins} monedas`);
+  };
+
   return (
     <HeaderContainer>
       <AeroLogo src='/assets/icons/aerolab-logo-1.svg' alt='' />
@@ -71,13 +123,64 @@ const Header = ({ user, modalIsOpen, setModalIsOpen }) => {
           </ModalCenter>
           <ModalBottom>
             <ModalBottomCoinsContainer>
-              <ModalBottomCoinsNotSelected>1000</ModalBottomCoinsNotSelected>
-              <ModalBottomCoinsNotSelected>5000</ModalBottomCoinsNotSelected>
-              <ModalBottomCoinsSelected>7500</ModalBottomCoinsSelected>
+              <ModalBottomCoinsSelectedOne
+                name='coinOne'
+                value={1000}
+                onChange={(e) => setCoinsAccum(e.target.value)}
+                onClick={handleCoinOne}
+                isActive={
+                  coinOneIsActive
+                    ? `linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%);`
+                    : '#E6F0FF'
+                }
+                isColorActive={
+                  coinOneIsActive
+                    ? '#f5f9ff'
+                    : `linear-gradient(102.47deg, #176feb -5.34%, #ff80ff 106.58%)`
+                }
+              >
+                1000
+              </ModalBottomCoinsSelectedOne>
+              <ModalBottomCoinsSelectedTwo
+                onChange={(e) => setCoinsAccum(e.target.value)}
+                value={5000}
+                name='coinTwo'
+                onClick={handleCoinTwo}
+                isActive={
+                  coinTwoIsActive
+                    ? `linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%);`
+                    : '#E6F0FF'
+                }
+                isColorActive={
+                  coinTwoIsActive
+                    ? '#f5f9ff'
+                    : `linear-gradient(102.47deg, #176feb -5.34%, #ff80ff 106.58%)`
+                }
+              >
+                5000
+              </ModalBottomCoinsSelectedTwo>
+              <ModalBottomCoinsSelectedThree
+                onChange={(e) => setCoinsAccum(e.target.value)}
+                name='coinThree'
+                value={7500}
+                onClick={handleCoinThree}
+                isActive={
+                  coinThreeIsActive
+                    ? `linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%);`
+                    : '#E6F0FF'
+                }
+                isColorActive={
+                  coinThreeIsActive
+                    ? '#f5f9ff'
+                    : `linear-gradient(102.47deg, #176feb -5.34%, #ff80ff 106.58%)`
+                }
+              >
+                7500
+              </ModalBottomCoinsSelectedThree>
             </ModalBottomCoinsContainer>
-            <ModalBottomAddCoins>
-              <ModalBottomAddCoinsIcon src='/assets/icons/aeropay-3.svg' /> Add
-              Points
+            <ModalBottomAddCoins onClick={handleAddCoins}>
+              <ModalBottomAddCoinsIcon src='/assets/icons/aeropay-3.svg' />
+              Add Points
             </ModalBottomAddCoins>
           </ModalBottom>
         </Modal>

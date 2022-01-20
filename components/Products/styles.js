@@ -71,6 +71,7 @@ export const ProductFiltersInput = styled.select`
   height: 59px;
   margin-right: 40px;
   background-color: ${colors.neutrals.grey000};
+  font-size: 16px;
 `;
 
 export const ProductFiltersInputOption = styled.option``;
