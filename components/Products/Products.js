@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 import {
   ProductsSectionContainer,
   ProductsTitleContainer,
@@ -46,6 +47,9 @@ const Products = ({
     'Smart Home',
     'Tablets & E-readers',
   ];
+
+  //MEDIA QUERYS
+  const isBreakpoint = useMediaQuery(1024);
 
   //PAGINATION
   const [currentPage, setCurrentPage] = useState(1);
@@ -160,7 +164,9 @@ const Products = ({
         <ProductsTitleSecond>Products</ProductsTitleSecond>
       </ProductsTitleContainer>
       <ProductFiltersContainer>
-        <ProductFiltersText>Filter by:</ProductFiltersText>
+        {isBreakpoint ? null : (
+          <ProductFiltersText>Filter by:</ProductFiltersText>
+        )}
         <ProductFiltersInput
           onChange={(e) => setSelectedCategory(e.target.value)}
           onClick={sortByCategory}
@@ -171,7 +177,9 @@ const Products = ({
             </ProductFiltersInputOption>
           ))}
         </ProductFiltersInput>
-        <ProductFiltersText>Sort by:</ProductFiltersText>
+        {isBreakpoint ? null : (
+          <ProductFiltersText>Sort by:</ProductFiltersText>
+        )}
         <ProductsFilterSortSelectorSelectedOne
           name='mostRecent'
           onClick={sortByMostRecent}

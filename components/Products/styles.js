@@ -4,21 +4,20 @@ import { colors, typeStyles } from '../../styles/themes';
 export const ProductsSectionContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
-  margin-left: 228px;
-  margin-right: 228px;
   background: ${colors.neutrals.grey000};
   @media (max-width: 450px) {
-    min-width: 100vw;
-    margin-left: 20px;
-    margin-right: 20px;
+    max-width: 100vw !important;
     justify-content: center;
-    background: blue;
+    margin-top: -450px;
   }
 `;
 
 export const ProductsTitleContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  @media screen and (max-width: 450px) {
+    justify-content: flex-start;
+    width: 335px;
+  }
 `;
 
 export const ProductsTitle = styled.h1`
@@ -35,6 +34,13 @@ export const ProductsTitle = styled.h1`
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
   margin-right: 10px;
+  @media (max-width: 450px) {
+    font-family: ${typeStyles.mobile.titles.fontL2.family};
+    font-style: normal;
+    font-weight: ${typeStyles.mobile.titles.fontL2.weight};
+    font-size: ${typeStyles.mobile.titles.fontL2.size};
+    line-height: ${typeStyles.mobile.titles.fontL2.lineHeight};
+  }
 `;
 
 export const ProductsTitleSecond = styled.h1`
@@ -45,6 +51,13 @@ export const ProductsTitleSecond = styled.h1`
   line-height: ${typeStyles.desktop.titles.fontL2.lineHeight};
   text-transform: uppercase;
   color: ${colors.neutrals.grey900};
+  @media (max-width: 450px) {
+    font-family: ${typeStyles.mobile.titles.fontL2.family};
+    font-style: normal;
+    font-weight: ${typeStyles.mobile.titles.fontL2.weight};
+    font-size: ${typeStyles.mobile.titles.fontL2.size};
+    line-height: ${typeStyles.mobile.titles.fontL2.lineHeight};
+  }
 `;
 
 export const ProductFiltersContainer = styled.div`
@@ -52,8 +65,10 @@ export const ProductFiltersContainer = styled.div`
   align-items: center;
   flex-direction: row;
   margin-bottom: 30px;
-  @media (max-width: 450px) {
+  @media screen and (max-width: 450px) {
     flex-wrap: wrap;
+    width: 350px;
+    z-index: 10;
   }
 `;
 
@@ -81,9 +96,16 @@ export const ProductFiltersInput = styled.select`
   margin-right: 40px;
   background-color: ${colors.neutrals.grey000};
   font-size: 16px;
+  @media (max-width: 450px) {
+    width: 80%;
+  }
 `;
 
-export const ProductFiltersInputOption = styled.option``;
+export const ProductFiltersInputOption = styled.option`
+  @media (max-width: 450px) {
+    /* width: 300px; */
+  }
+`;
 
 export const ProductsFilterSortSelectorSelectedOne = styled.button`
   display: flex;
@@ -99,6 +121,12 @@ export const ProductsFilterSortSelectorSelectedOne = styled.button`
   margin-right: 12px;
   font-size: 18px;
   color: ${(props) => props.isColorActive};
+  @media (max-width: 450px) {
+    width: 136px;
+    height: 40px;
+    margin-top: 20px;
+    font-size: 15px;
+  }
 `;
 
 export const ProductsFilterSortSelectorSelectedTwo = styled.button`
@@ -115,6 +143,12 @@ export const ProductsFilterSortSelectorSelectedTwo = styled.button`
   margin-right: 12px;
   font-size: 18px;
   color: ${(props) => props.isColorActiveTwo};
+  @media (max-width: 450px) {
+    width: 136px;
+    height: 40px;
+    margin-top: 20px;
+    font-size: 15px;
+  }
 `;
 
 export const ProductsFilterSortSelectorSelectedThree = styled.button`
@@ -131,6 +165,12 @@ export const ProductsFilterSortSelectorSelectedThree = styled.button`
   margin-right: 12px;
   font-size: 18px;
   color: ${(props) => props.isColorActiveThree};
+  @media (max-width: 450px) {
+    width: 136px;
+    height: 40px;
+    margin-top: 20px;
+    font-size: 14px;
+  }
 `;
 
 export const ProductsFilterPaginationContainer = styled.div`
@@ -141,9 +181,9 @@ export const ProductsFilterPaginationContainer = styled.div`
   height: 60px;
   border: 1px solid #dae4f2;
   border-radius: 16px;
-  margin-left: 250px;
   @media (max-width: 450px) {
-    flex-wrap: wrap;
+    margin-top: 30px;
+    height: 50px;
   }
 `;
 
@@ -155,8 +195,11 @@ export const ProductsFilterPaginationPager = styled.p`
   line-height: ${typeStyles.desktop.text.textL1First.lineHeight};
   color: ${colors.neutrals.grey600};
   @media (max-width: 450px) {
-    flex-wrap: wrap;
-    width: 100vw;
+    font-family: ${typeStyles.mobile.text.textL1First.family};
+    font-style: normal;
+    font-weight: ${typeStyles.mobile.text.textL1First.weight};
+    font-size: ${typeStyles.mobile.text.textL1First.size};
+    line-height: ${typeStyles.mobile.text.textL1First.lineHeight};
   }
 `;
 
@@ -181,46 +224,40 @@ export const ProductsDataContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-  @media (max-width: 450px) {
-    /* flex-direction: column;
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
     justify-content: center;
-    align-items: center; */
-    /* flex-wrap: wrap;
-    width: 100vw; */
+    align-items: center;
+    max-width: 100%;
   }
 `;
 
 export const ProductsBottomPagination = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   margin-top: 60px;
-  @media (max-width: 450px) {
-    flex-wrap: wrap;
-    width: 100vw;
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
+    justify-content: center;
   }
 `;
 
-export const ProductsBottomCounterContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const ProductsBottomCounter = styled.p`
+export const ProductsBottomCounter = styled.div`
   font-family: ${typeStyles.desktop.text.textL1First.family};
   font-style: normal;
   font-weight: ${typeStyles.desktop.text.textL1First.weight};
   font-size: ${typeStyles.desktop.text.textL1First.size};
   line-height: ${typeStyles.desktop.text.textL1First.lineHeight};
   color: ${colors.neutrals.grey600};
-  margin-left: 45%;
   display: flex;
   justify-content: center;
+  text-align: center;
   align-items: center;
+  @media sreen and (max-width: 450px) {
+    margin-right: 0px;
+  }
 `;
 
 export const ProductsBottomCounterSpan = styled.span`

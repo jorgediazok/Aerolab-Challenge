@@ -5,24 +5,24 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   background: ${colors.neutrals.grey000};
   @media screen and (max-width: 450px) {
-    background: blue;
   }
 `;
 
 export const AeroLogo = styled.img`
-  width: 39px;
-  height: 36px;
-  @media screen and (max-width: 375px) {
+  width: 200px;
+  @media screen and (max-width: 450px) {
+    width: 45px;
+    height: 42px;
+    margin-left: 20px;
   }
 `;
 
 export const AeroCoinsContainer = styled.div`
   display: flex;
-  /* width: 300px;
-  height: 80px; */
+  width: 172px;
+  height: 48px;
   justify-content: space-between;
   align-items: center;
   padding: 8px 16px;
@@ -32,6 +32,8 @@ export const AeroCoinsContainer = styled.div`
   z-index: 1;
 
   @media screen and (max-width: 450px) {
+    width: 143px;
+    height: 40px;
   }
 `;
 
@@ -66,13 +68,14 @@ export const Modal = styled.div`
   height: 404px;
   width: 312px;
   background: ${colors.neutrals.grey000};
-  top: 149px;
-  right: 224px;
+  top: 108px;
+  right: 80px;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   z-index: 3;
   @media screen and (max-width: 450px) {
-    right: -228px;
+    top: 100px;
+    right: 20px;
   }
 `;
 

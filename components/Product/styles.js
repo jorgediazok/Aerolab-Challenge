@@ -14,8 +14,8 @@ export const ProductCard = styled.div`
   left: 0px;
   top: 0px;
   @media (max-width: 450px) {
-    width: 800px;
-    height: 1200px;
+    width: 322px;
+    height: 506px;
   }
 `;
 
@@ -138,6 +138,11 @@ export const ProductCardCTA = styled.button`
   font-weight: ${typeStyles.desktop.text.textL1First.weight};
   color: ${colors.neutrals.grey000};
   cursor: pointer;
+  @media screen and (max-width: 450px) {
+    height: 56px;
+    width: 100%;
+    border-radius: 0px 0px 16px 16px;
+  }
 `;
 
 export const ProductCardCTADisabled = styled.button`
@@ -158,4 +163,9 @@ export const ProductCardCTADisabled = styled.button`
   font-size: ${typeStyles.desktop.text.textL1First.size};
   font-weight: ${typeStyles.desktop.text.textL1First.weight};
   color: ${colors.neutrals.grey600};
+  @media screen and (max-width: 450px) {
+    height: 56px;
+    width: 100%;
+    border-radius: 0px;
+  }
 `;

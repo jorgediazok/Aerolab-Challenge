@@ -5,12 +5,10 @@ export const HeroContainer = styled.main`
   background: ${colors.neutrals.grey000};
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
   @media screen and (max-width: 450px) {
-    width: 100%;
-    flex-wrap: wrap;
     flex-direction: column;
-    background: blue;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -18,11 +16,10 @@ export const HeroLeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 230px;
   margin-top: 70px;
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 450px) {
     align-items: center;
-    margin-left: 0;
+    margin-left: 0px;
   }
 `;
 
@@ -50,6 +47,12 @@ export const HeroLeftTitleTwo = styled.h1`
   -moz-text-fill-color: transparent;
   text-transform: uppercase;
   margin-top: 10px;
+  @media screen and (max-width: 450px) {
+    font-family: ${typeStyles.mobile.titles.fontL1.family};
+    font-size: ${typeStyles.mobile.titles.fontL1.size};
+    font-weight: ${typeStyles.mobile.titles.fontL1.weight};
+    line-height: ${typeStyles.mobile.titles.fontL1.lineHeight};
+  }
 `;
 
 export const HeroLeftTitleThree = styled.h1`
@@ -60,6 +63,13 @@ export const HeroLeftTitleThree = styled.h1`
   color: ${colors.neutrals.grey900};
   text-transform: uppercase;
   margin-top: -120px;
+  @media screen and (max-width: 450px) {
+    font-family: ${typeStyles.mobile.titles.fontL1.family};
+    font-size: ${typeStyles.mobile.titles.fontL1.size};
+    font-weight: ${typeStyles.mobile.titles.fontL1.weight};
+    line-height: ${typeStyles.mobile.titles.fontL1.lineHeight};
+    margin-top: -60px;
+  }
 `;
 
 export const HeroLeftTitleFour = styled.p`
@@ -71,6 +81,10 @@ export const HeroLeftTitleFour = styled.p`
   text-align: left;
   max-width: 500px;
   margin-top: -120px;
+  @media screen and (max-width: 450px) {
+    margin-top: -40px;
+    text-align: center;
+  }
 `;
 
 export const HeroLeftButton = styled.button`
@@ -93,6 +107,11 @@ export const HeroLeftButton = styled.button`
   text-align: center;
   color: ${colors.neutrals.grey000};
   border: none;
+  @media screen and (max-width: 450px) {
+    width: 303px;
+    height: 64px;
+    margin-top: 20px;
+  }
 `;
 
 export const HeroLeftButtonIcon = styled.img`
@@ -104,17 +123,20 @@ export const HeroLeftButtonIcon = styled.img`
 `;
 
 export const HeroRightContainer = styled.div`
-  margin-right: 230px;
+  display: flex;
+  justify-content: center;
   z-index: 0;
-  @media screen and (max-width: 420px) {
+  @media screen and (max-width: 450px) {
+    display: flex;
     flex-direction: column;
     margin-right: 0;
     margin-top: 0;
-    /* background: yellow; */
+    width: 100vw;
   }
 `;
 
 export const HeroImageBackground = styled.div`
+  display: flex;
   position: relative;
   background: linear-gradient(90deg, #176feb, #ff80ff);
   opacity: 50%;
@@ -124,8 +146,10 @@ export const HeroImageBackground = styled.div`
   margin-top: 120px;
   border-radius: 100px;
   @media screen and (max-width: 450px) {
-    /* margin-left: 300px;
-    width: 800px; */
+    width: 100vw !important;
+    border-radius: 0;
+    height: 1500px;
+    z-index: 45;
   }
 `;
 
@@ -133,11 +157,15 @@ export const HeroImage = styled.img`
   position: absolute;
   width: 723px;
   height: 712px;
-  margin-top: -718px;
+  margin-top: -70px;
   right: 172px;
   z-index: 9999999 !important;
+`;
 
-  @media screen and (max-width: 375px) {
-    right: -700px;
-  }
+export const HeroImageResponsive = styled.img`
+  position: absolute;
+  width: 100vw;
+  top: 580px;
+
+  z-index: 9999999 !important;
 `;
