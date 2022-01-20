@@ -1,37 +1,38 @@
 import styled from 'styled-components';
 import { colors, typeStyles } from '../../styles/themes';
-import { breakpoints } from '../../styles/themes';
 
 export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
-  height: 128px;
+  align-items: center;
+  width: 100%;
   background: ${colors.neutrals.grey000};
-  padding: 40px 0px;
-  width: '100%';
-
-  @media screen and (max-width: 375px) {
-    padding: 40px 20px;
+  @media screen and (max-width: 450px) {
+    background: blue;
   }
 `;
 
 export const AeroLogo = styled.img`
-  margin-left: 228px;
+  width: 39px;
+  height: 36px;
+  @media screen and (max-width: 375px) {
+  }
 `;
 
 export const AeroCoinsContainer = styled.div`
   display: flex;
-  position: relative;
-  width: 172px;
-  height: 48px;
+  /* width: 300px;
+  height: 80px; */
   justify-content: space-between;
   align-items: center;
   padding: 8px 16px;
   border: 1px solid #dae4f2;
   border-radius: 15px;
-  margin-right: 228px;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   z-index: 1;
+
+  @media screen and (max-width: 450px) {
+  }
 `;
 
 export const AeroPay = styled.img`
@@ -65,11 +66,14 @@ export const Modal = styled.div`
   height: 404px;
   width: 312px;
   background: ${colors.neutrals.grey000};
-  top: 96px;
-  right: 228px;
+  top: 149px;
+  right: 224px;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   z-index: 3;
+  @media screen and (max-width: 450px) {
+    right: -228px;
+  }
 `;
 
 export const ModalTop = styled.div`

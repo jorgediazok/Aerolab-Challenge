@@ -5,15 +5,25 @@ export const HeroContainer = styled.main`
   background: ${colors.neutrals.grey000};
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
+  @media screen and (max-width: 450px) {
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background: blue;
+  }
 `;
 
 export const HeroLeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: stretch;
   margin-left: 230px;
   margin-top: 70px;
+  @media screen and (max-width: 375px) {
+    align-items: center;
+    margin-left: 0;
+  }
 `;
 
 export const HeroLeftTitleOne = styled.span`
@@ -95,8 +105,13 @@ export const HeroLeftButtonIcon = styled.img`
 
 export const HeroRightContainer = styled.div`
   margin-right: 230px;
-  margin-top: -100px;
   z-index: 0;
+  @media screen and (max-width: 420px) {
+    flex-direction: column;
+    margin-right: 0;
+    margin-top: 0;
+    /* background: yellow; */
+  }
 `;
 
 export const HeroImageBackground = styled.div`
@@ -106,8 +121,12 @@ export const HeroImageBackground = styled.div`
   width: 600px;
   height: 522px;
   z-index: 0;
-  margin-top: 200px;
+  margin-top: 120px;
   border-radius: 100px;
+  @media screen and (max-width: 450px) {
+    /* margin-left: 300px;
+    width: 800px; */
+  }
 `;
 
 export const HeroImage = styled.img`
@@ -117,4 +136,8 @@ export const HeroImage = styled.img`
   margin-top: -718px;
   right: 172px;
   z-index: 9999999 !important;
+
+  @media screen and (max-width: 375px) {
+    right: -700px;
+  }
 `;

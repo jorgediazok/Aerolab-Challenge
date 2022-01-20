@@ -2,12 +2,18 @@ import styled from 'styled-components';
 import { colors, typeStyles } from '../../styles/themes';
 
 export const ProductsSectionContainer = styled.section`
-  width: 1464px;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   margin-left: 228px;
   margin-right: 228px;
   background: ${colors.neutrals.grey000};
+  @media (max-width: 450px) {
+    min-width: 100vw;
+    margin-left: 20px;
+    margin-right: 20px;
+    justify-content: center;
+    background: blue;
+  }
 `;
 
 export const ProductsTitleContainer = styled.div`
@@ -46,6 +52,9 @@ export const ProductFiltersContainer = styled.div`
   align-items: center;
   flex-direction: row;
   margin-bottom: 30px;
+  @media (max-width: 450px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const ProductFiltersText = styled.span`
@@ -133,6 +142,9 @@ export const ProductsFilterPaginationContainer = styled.div`
   border: 1px solid #dae4f2;
   border-radius: 16px;
   margin-left: 250px;
+  @media (max-width: 450px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const ProductsFilterPaginationPager = styled.p`
@@ -142,6 +154,10 @@ export const ProductsFilterPaginationPager = styled.p`
   font-size: ${typeStyles.desktop.text.textL1First.size};
   line-height: ${typeStyles.desktop.text.textL1First.lineHeight};
   color: ${colors.neutrals.grey600};
+  @media (max-width: 450px) {
+    flex-wrap: wrap;
+    width: 100vw;
+  }
 `;
 
 export const ProductsFilterPaginationIconOne = styled.img`
@@ -165,6 +181,13 @@ export const ProductsDataContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+  @media (max-width: 450px) {
+    /* flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    /* flex-wrap: wrap;
+    width: 100vw; */
+  }
 `;
 
 export const ProductsBottomPagination = styled.div`
@@ -174,6 +197,10 @@ export const ProductsBottomPagination = styled.div`
   align-items: center;
   width: 100%;
   margin-top: 60px;
+  @media (max-width: 450px) {
+    flex-wrap: wrap;
+    width: 100vw;
+  }
 `;
 
 export const ProductsBottomCounterContainer = styled.div`

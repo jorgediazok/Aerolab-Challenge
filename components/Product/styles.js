@@ -9,11 +9,14 @@ export const ProductCard = styled.div`
   padding: 0px;
   border: 1px solid #dae4f2;
   border-radius: 16px 16px 0px 0px;
-  position: static;
   width: 348px;
   height: 506px;
   left: 0px;
   top: 0px;
+  @media (max-width: 450px) {
+    width: 800px;
+    height: 1200px;
+  }
 `;
 
 export const ProductCardTop = styled.div`

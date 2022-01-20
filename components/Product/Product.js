@@ -12,18 +12,22 @@ import {
   ProductCardRedeemOnHover,
   ProductCardRedeemOnHoverButton,
 } from './styles';
+import { postRedeem } from '../../pages/api/post';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Product = ({ product, user, redeem, history, points }) => {
+const Product = ({ product, user, history, points }) => {
   const [redeemProduct, setRedeemProduct] = useState(history);
   const notifySuccess = () => toast.success('Bought product succesfully!');
   const notifyErrorFailed = () => toast.error('Error. Please try again.');
+
+  console.log(history);
 
   const handleRedeemProduct = async (id) => {
     if (user.points < product.cost) {
       return;
     }
+    await postRedeem(product._id);
     notifySuccess();
   };
 

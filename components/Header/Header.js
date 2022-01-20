@@ -28,6 +28,7 @@ import {
   ModalBottomAddCoinsIcon,
   ModalBottomAddCoins,
 } from './styles';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 const Header = ({
   user,
@@ -44,17 +45,14 @@ const Header = ({
   const [redeemHistory, setRedeemHistory] = useState([]);
   const [coinsAccum, setCoinsAccum] = useState([]);
 
-  console.log(history);
+  //MEDIA QUERYS
+  const isBreakpoint = useMediaQuery(1024);
 
   //ADD COINS
 
   const reducedCoins = coinsAccum.reduce((acc, num) => {
     return parseInt(acc) + parseInt(num);
   }, 0);
-
-  useEffect(() => {
-    setCoinThreeIsActive(true);
-  }, []);
 
   const handleCoinOne = (e) => {
     setCoinTwoIsActive(false);
@@ -83,7 +81,11 @@ const Header = ({
 
   return (
     <HeaderContainer>
-      <AeroLogo src='/assets/icons/aerolab-logo-1.svg' alt='' />
+      {isBreakpoint ? (
+        <AeroLogo src='/assets/icons/aerolab-logo-2.svg' alt='' />
+      ) : (
+        <AeroLogo src='/assets/icons/aerolab-logo-1.svg' alt='' />
+      )}
       <AeroCoinsContainer>
         <AeroPay src='/assets/icons/aeropay-1.svg' alt='' />
         <AeroCoins>{user.points}</AeroCoins>
