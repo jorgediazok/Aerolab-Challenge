@@ -221,7 +221,7 @@ export const HeroImage = styled.img`
 
   //LAPTOP
   @media screen and (min-width: 1024px) and (max-width: 1919px) {
-    right: 35px;
+    right: 155px;
   }
 `;
 

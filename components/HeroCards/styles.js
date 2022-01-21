@@ -60,8 +60,8 @@ export const IntroCard = styled.div`
 
   //LAPTOP
   @media screen and (min-width: 1024px) and (max-width: 1919px) {
-    /* width: 432px;
-    height: 575px; */
+    width: 432px;
+    height: 560px;
   }
 `;
 
@@ -181,6 +181,10 @@ export const IntroCardIllustration = styled.img`
     rgba(255, 128, 255, 0.5) 106.58%
   );
   height: 498px;
+  //LAPTOP
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    height: 400px;
+  }
 `;
 
 export const IntroCardIllustrationResponsive = styled.img`
