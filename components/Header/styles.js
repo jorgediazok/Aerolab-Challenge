@@ -41,6 +41,7 @@ export const AeroCoinsContainer = styled.div`
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   z-index: 1;
 
+  //MOBILE
   @media screen and (max-width: 450px) {
     width: 143px;
     height: 40px;
@@ -87,7 +88,7 @@ export const Modal = styled.div`
   //LAPTOP
   @media screen and (min-width: 1024px) and (max-width: 1919px) {
     top: 98px;
-    right: 80px;
+    right: 120px;
   }
 
   //TABLET

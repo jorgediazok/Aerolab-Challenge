@@ -10,8 +10,8 @@ export const LayoutContainer = styled.div`
 
   //LAPTOP
   @media screen and (min-width: 1200px) and (max-width: 1919px) {
-    padding-left: 228px;
-    padding-right: 228px;
+    padding-left: 120px;
+    padding-right: 120px;
   }
 
   //TABLET

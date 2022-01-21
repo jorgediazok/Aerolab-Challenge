@@ -152,6 +152,8 @@ export const HeroLeftButton = styled.button`
   text-align: center;
   color: ${colors.neutrals.grey000};
   border: none;
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     width: 303px;
     height: 64px;
@@ -221,7 +223,7 @@ export const HeroImage = styled.img`
 
   //LAPTOP
   @media screen and (min-width: 1024px) and (max-width: 1919px) {
-    right: 155px;
+    right: 60px;
   }
 `;
 
