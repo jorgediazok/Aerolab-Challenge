@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import {
   ProductCard,
   ProductCardTop,
@@ -16,19 +17,27 @@ import { postRedeem } from '../../pages/api/post';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Product = ({ product, user, history, points }) => {
-  const [redeemProduct, setRedeemProduct] = useState(history);
+const Product = ({ product, user }) => {
+  const [loading, setLoading] = useState(false);
   const notifySuccess = () => toast.success('Bought product succesfully!');
-  const notifyErrorFailed = () => toast.error('Error. Please try again.');
+  const notifyFail = () =>
+    toast.error(`Something went wrong. Please try again.`);
+  const router = useRouter();
 
-  console.log(history);
-
-  const handleRedeemProduct = async (id) => {
-    if (user.points < product.cost) {
-      return;
+  const handleRedeemProduct = async () => {
+    try {
+      setLoading(true);
+      if (user.points < product.cost) {
+        return;
+      }
+      await postRedeem(product._id);
+      notifySuccess();
+      setLoading(false);
+      router.reload('/');
+    } catch (error) {
+      setLoading(false);
+      notifyFail();
     }
-    await postRedeem(product._id);
-    notifySuccess();
   };
 
   return (
@@ -37,11 +46,8 @@ const Product = ({ product, user, history, points }) => {
         <ProductCardImage src={product.img.url} alt='' />
         <ProductCardRedeemOnHover>
           {user.points < product.cost ? (
-            <ProductCardRedeemOnHoverButton
-              onClick={handleRedeemProduct}
-              disabled
-            >
-              BUY {product.cost - user.points} COINS
+            <ProductCardRedeemOnHoverButton disabled>
+              {product.cost - user.points} COINS MORE
             </ProductCardRedeemOnHoverButton>
           ) : (
             <ProductCardRedeemOnHoverButton onClick={handleRedeemProduct}>
@@ -56,8 +62,8 @@ const Product = ({ product, user, history, points }) => {
       </ProductCardDetails>
       {user.points >= product.cost ? (
         <ProductCardCTA>
-          Redeem for{' '}
-          <ProductCardCTAIcon src='/assets/icons/aeropay-3.svg' alt='' />{' '}
+          {loading ? 'Processing...' : 'Redeem for'}
+          <ProductCardCTAIcon src='/assets/icons/aeropay-3.svg' alt='' />
           {product.cost}
         </ProductCardCTA>
       ) : (

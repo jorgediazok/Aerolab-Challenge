@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import {
   HeaderContainer,
   AeroLogo,
@@ -29,54 +30,64 @@ import {
   ModalBottomAddCoins,
 } from './styles';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
+import { postUserPoints } from '../../pages/api/post';
+import { toast } from 'react-toastify';
 
-const Header = ({
-  user,
-  modalIsOpen,
-  setModalIsOpen,
-  history,
-  redeem,
-  points,
-}) => {
+const Header = ({ user, modalIsOpen, setModalIsOpen }) => {
   //STATES
+  const [loading, setLoading] = useState(false);
   const [coinOneIsActive, setCoinOneIsActive] = useState(false);
   const [coinTwoIsActive, setCoinTwoIsActive] = useState(false);
   const [coinThreeIsActive, setCoinThreeIsActive] = useState(false);
-  const [redeemHistory, setRedeemHistory] = useState([]);
-  const [coinsAccum, setCoinsAccum] = useState([]);
+  const [coinsAmount, setCoinsAmount] = useState(0);
+
+  //ROUTER
+  const router = useRouter();
+
+  //TOASTR
+  const notifySuccess = () =>
+    toast.success(`Added ${coinsAmount} coins succesfully!`);
+
+  const notifyFail = () =>
+    toast.error(`Something went wrong. Please try again.`);
 
   //MEDIA QUERYS
   const isBreakpoint = useMediaQuery(1024);
 
   //ADD COINS
 
-  const reducedCoins = coinsAccum.reduce((acc, num) => {
-    return parseInt(acc) + parseInt(num);
-  }, 0);
+  const handleAddCoins = async () => {
+    try {
+      setLoading(true);
+      await postUserPoints(coinsAmount);
+      notifySuccess();
+      setLoading(false);
+      router.reload('/');
+    } catch (error) {
+      setLoading(false);
+      notifyFail();
+    }
+  };
 
   const handleCoinOne = (e) => {
     setCoinTwoIsActive(false);
     setCoinThreeIsActive(false);
     setCoinOneIsActive(true);
-    setCoinsAccum([...coinsAccum, e.target.value]);
+    setCoinsAmount(parseInt(e.target.value));
   };
 
   const handleCoinTwo = (e) => {
     setCoinOneIsActive(false);
     setCoinThreeIsActive(false);
     setCoinTwoIsActive(true);
-    setCoinsAccum([...coinsAccum, e.target.value]);
+    setCoinsAmount(parseInt(e.target.value));
   };
 
   const handleCoinThree = (e) => {
     setCoinOneIsActive(false);
     setCoinTwoIsActive(false);
     setCoinThreeIsActive(true);
-    setCoinsAccum([...coinsAccum, e.target.value]);
-  };
-
-  const handleAddCoins = () => {
-    alert(`Agregaste ${reducedCoins} monedas`);
+    setCoinsAmount(parseInt(e.target.value));
   };
 
   return (
@@ -128,7 +139,7 @@ const Header = ({
               <ModalBottomCoinsSelectedOne
                 name='coinOne'
                 value={1000}
-                onChange={(e) => setCoinsAccum(e.target.value)}
+                onChange={(e) => setCoinsAmount(e.target.value)}
                 onClick={handleCoinOne}
                 isActive={
                   coinOneIsActive
@@ -182,7 +193,7 @@ const Header = ({
             </ModalBottomCoinsContainer>
             <ModalBottomAddCoins onClick={handleAddCoins}>
               <ModalBottomAddCoinsIcon src='/assets/icons/aeropay-3.svg' />
-              Add Points
+              {loading ? 'Processing...' : 'Add Points'}
             </ModalBottomAddCoins>
           </ModalBottom>
         </Modal>

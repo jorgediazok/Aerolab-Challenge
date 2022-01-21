@@ -13,6 +13,7 @@ import {
   ProductsFilterSortSelectorSelectedThree,
   ProductFiltersInputOption,
   ProductsFilterPaginationContainer,
+  ProductsFilterPaginationContainerTwo,
   ProductsFilterPaginationIconOne,
   ProductsFilterPaginationPager,
   ProductsFilterPaginationIconTwo,
@@ -272,7 +273,7 @@ const Products = ({
           </ProductsBottomCounterSpan>
           products
         </ProductsBottomCounter>
-        <ProductsFilterPaginationContainer>
+        <ProductsFilterPaginationContainerTwo>
           <ProductsFilterPaginationIconOne
             src='/assets/icons/chevron-default.svg'
             alt=''
@@ -289,7 +290,7 @@ const Products = ({
             onClick={nextPage}
             style={{ opacity: `${currentPage === 2 ? '0.5' : 1}` }}
           />
-        </ProductsFilterPaginationContainer>
+        </ProductsFilterPaginationContainerTwo>
       </ProductsBottomPagination>
     </ProductsSectionContainer>
   );

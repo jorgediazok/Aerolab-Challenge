@@ -84,6 +84,7 @@ export const ProductFiltersText = styled.span`
 `;
 
 export const ProductFiltersInput = styled.select`
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -174,6 +175,22 @@ export const ProductsFilterSortSelectorSelectedThree = styled.button`
 `;
 
 export const ProductsFilterPaginationContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 60px;
+  border: 1px solid #dae4f2;
+  margin-left: 200px;
+  border-radius: 16px;
+  @media (max-width: 450px) {
+    margin-top: 30px;
+    height: 50px;
+    margin-left: 50px;
+  }
+`;
+
+export const ProductsFilterPaginationContainerTwo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

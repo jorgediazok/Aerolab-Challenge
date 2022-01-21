@@ -69,7 +69,7 @@ export const Modal = styled.div`
   width: 312px;
   background: ${colors.neutrals.grey000};
   top: 108px;
-  right: 80px;
+  right: 220px;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   z-index: 3;
