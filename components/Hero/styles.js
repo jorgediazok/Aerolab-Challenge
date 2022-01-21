@@ -5,6 +5,8 @@ export const HeroContainer = styled.main`
   background: ${colors.neutrals.grey000};
   display: flex;
   justify-content: space-between;
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     flex-direction: column;
     justify-content: center;
@@ -17,6 +19,8 @@ export const HeroLeftContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-top: 70px;
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     align-items: center;
     margin-left: 0px;
@@ -31,6 +35,12 @@ export const HeroLeftTitleOne = styled.span`
   letter-spacing: ${typeStyles.desktop.text.textL1Second.letterSpacing};
   color: ${colors.neutrals.grey600};
   text-transform: uppercase;
+
+  //LAPTOP
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    font-size: ${typeStyles.desktop.text.textL1First.size};
+    margin-bottom: -20px;
+  }
 `;
 
 export const HeroLeftTitleTwo = styled.h1`
@@ -47,6 +57,13 @@ export const HeroLeftTitleTwo = styled.h1`
   -moz-text-fill-color: transparent;
   text-transform: uppercase;
   margin-top: 10px;
+
+  //LAPTOP
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    font-size: ${typeStyles.desktop.titles.fontL4.size};
+  }
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     font-family: ${typeStyles.mobile.titles.fontL1.family};
     font-size: ${typeStyles.mobile.titles.fontL1.size};
@@ -63,6 +80,13 @@ export const HeroLeftTitleThree = styled.h1`
   color: ${colors.neutrals.grey900};
   text-transform: uppercase;
   margin-top: -120px;
+
+  //LAPTOP
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    font-size: ${typeStyles.desktop.titles.fontL4.size};
+  }
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     font-family: ${typeStyles.mobile.titles.fontL1.family};
     font-size: ${typeStyles.mobile.titles.fontL1.size};
@@ -81,6 +105,14 @@ export const HeroLeftTitleFour = styled.p`
   text-align: left;
   max-width: 500px;
   margin-top: -120px;
+
+  //LAPTOP
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    font-size: ${typeStyles.desktop.text.textL1Second.size};
+    margin-top: -90px;
+  }
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     margin-top: -40px;
     text-align: center;
@@ -104,6 +136,7 @@ export const HeroLeftButton = styled.button`
   font-weight: 600;
   font-size: 18px;
   line-height: 150%;
+  cursor: pointer;
   text-align: center;
   color: ${colors.neutrals.grey000};
   border: none;
@@ -126,6 +159,8 @@ export const HeroRightContainer = styled.div`
   display: flex;
   justify-content: center;
   z-index: 0;
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     display: flex;
     flex-direction: column;
@@ -145,6 +180,8 @@ export const HeroImageBackground = styled.div`
   z-index: 0;
   margin-top: 120px;
   border-radius: 100px;
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     width: 100vw !important;
     border-radius: 0;
@@ -160,6 +197,11 @@ export const HeroImage = styled.img`
   margin-top: -70px;
   right: 172px;
   z-index: 9999999 !important;
+
+  //LAPTOP
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    right: 20px;
+  }
 `;
 
 export const HeroImageResponsive = styled.img`

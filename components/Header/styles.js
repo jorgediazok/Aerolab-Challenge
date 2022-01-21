@@ -6,12 +6,13 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   background: ${colors.neutrals.grey000};
-  @media screen and (max-width: 450px) {
-  }
 `;
 
 export const AeroLogo = styled.img`
   width: 200px;
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    width: 150px;
+  }
   @media screen and (max-width: 450px) {
     width: 45px;
     height: 42px;
@@ -73,6 +74,16 @@ export const Modal = styled.div`
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   z-index: 3;
+
+  //LAPTOP
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    top: 98px;
+    right: 80px;
+  }
+
+  //TABLET
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     top: 100px;
     right: 20px;

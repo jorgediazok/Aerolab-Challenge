@@ -5,6 +5,8 @@ export const ProductsSectionContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
   background: ${colors.neutrals.grey000};
+
+  //MOBILE
   @media (max-width: 450px) {
     max-width: 100vw !important;
     justify-content: center;
@@ -14,6 +16,8 @@ export const ProductsSectionContainer = styled.section`
 
 export const ProductsTitleContainer = styled.div`
   display: flex;
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     justify-content: flex-start;
     width: 335px;
@@ -34,6 +38,13 @@ export const ProductsTitle = styled.h1`
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
   margin-right: 10px;
+
+  //LAPTOP
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    font-size: ${typeStyles.desktop.titles.fontL3.size};
+  }
+
+  //MOBILE
   @media (max-width: 450px) {
     font-family: ${typeStyles.mobile.titles.fontL2.family};
     font-style: normal;
@@ -51,6 +62,13 @@ export const ProductsTitleSecond = styled.h1`
   line-height: ${typeStyles.desktop.titles.fontL2.lineHeight};
   text-transform: uppercase;
   color: ${colors.neutrals.grey900};
+
+  //LAPTOP
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    font-size: ${typeStyles.desktop.titles.fontL3.size};
+  }
+
+  //MOBILE
   @media (max-width: 450px) {
     font-family: ${typeStyles.mobile.titles.fontL2.family};
     font-style: normal;
@@ -63,8 +81,9 @@ export const ProductsTitleSecond = styled.h1`
 export const ProductFiltersContainer = styled.div`
   display: flex;
   align-items: center;
-  flex-direction: row;
   margin-bottom: 30px;
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     flex-wrap: wrap;
     width: 350px;
@@ -97,6 +116,15 @@ export const ProductFiltersInput = styled.select`
   margin-right: 40px;
   background-color: ${colors.neutrals.grey000};
   font-size: 16px;
+
+  //LAPTOP
+
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    width: 200px;
+    height: 50px;
+  }
+
+  //MOBILE
   @media (max-width: 450px) {
     width: 80%;
   }
@@ -104,7 +132,6 @@ export const ProductFiltersInput = styled.select`
 
 export const ProductFiltersInputOption = styled.option`
   @media (max-width: 450px) {
-    /* width: 300px; */
   }
 `;
 
@@ -122,6 +149,8 @@ export const ProductsFilterSortSelectorSelectedOne = styled.button`
   margin-right: 12px;
   font-size: 18px;
   color: ${(props) => props.isColorActive};
+
+  //MOBILE
   @media (max-width: 450px) {
     width: 136px;
     height: 40px;
@@ -144,6 +173,8 @@ export const ProductsFilterSortSelectorSelectedTwo = styled.button`
   margin-right: 12px;
   font-size: 18px;
   color: ${(props) => props.isColorActiveTwo};
+
+  //MOBILE
   @media (max-width: 450px) {
     width: 136px;
     height: 40px;
@@ -166,6 +197,8 @@ export const ProductsFilterSortSelectorSelectedThree = styled.button`
   margin-right: 12px;
   font-size: 18px;
   color: ${(props) => props.isColorActiveThree};
+
+  //MOBILE
   @media (max-width: 450px) {
     width: 136px;
     height: 40px;
@@ -183,6 +216,15 @@ export const ProductsFilterPaginationContainer = styled.div`
   border: 1px solid #dae4f2;
   margin-left: 200px;
   border-radius: 16px;
+
+  //LAPTOP
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    margin-left: 10px;
+    height: 50px;
+    width: 205px;
+  }
+
+  //MOBILE
   @media (max-width: 450px) {
     margin-top: 30px;
     height: 50px;
@@ -198,6 +240,8 @@ export const ProductsFilterPaginationContainerTwo = styled.div`
   height: 60px;
   border: 1px solid #dae4f2;
   border-radius: 16px;
+
+  //MOBILE
   @media (max-width: 450px) {
     margin-top: 30px;
     height: 50px;
@@ -211,6 +255,8 @@ export const ProductsFilterPaginationPager = styled.p`
   font-size: ${typeStyles.desktop.text.textL1First.size};
   line-height: ${typeStyles.desktop.text.textL1First.lineHeight};
   color: ${colors.neutrals.grey600};
+
+  //MOBILE
   @media (max-width: 450px) {
     font-family: ${typeStyles.mobile.text.textL1First.family};
     font-style: normal;
@@ -241,6 +287,14 @@ export const ProductsDataContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    gap: 29px;
+    justify-content: center;
+    margin-left: 2px;
+  }
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     flex-direction: column;
     justify-content: center;
@@ -255,6 +309,8 @@ export const ProductsBottomPagination = styled.div`
   align-items: center;
   width: 100%;
   margin-top: 60px;
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     flex-direction: column;
     justify-content: center;
@@ -272,6 +328,8 @@ export const ProductsBottomCounter = styled.div`
   justify-content: center;
   text-align: center;
   align-items: center;
+
+  //MOBILE
   @media sreen and (max-width: 450px) {
     margin-right: 0px;
   }

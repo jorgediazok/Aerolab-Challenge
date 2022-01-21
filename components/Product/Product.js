@@ -33,7 +33,7 @@ const Product = ({ product, user }) => {
       await postRedeem(product._id);
       notifySuccess();
       setLoading(false);
-      router.reload('/');
+      router.replace(router.asPath);
     } catch (error) {
       setLoading(false);
       notifyFail();

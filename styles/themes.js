@@ -59,6 +59,14 @@ export const typeStyles = {
         letterSpacing: '0%',
         textStyle: 'All-caps',
       },
+      fontL4: {
+        family: 'Montserrat',
+        size: '150px',
+        weight: '900',
+        lineHeight: '160px',
+        letterSpacing: '0%',
+        textStyle: 'All-caps',
+      },
     },
     text: {
       textL1First: {

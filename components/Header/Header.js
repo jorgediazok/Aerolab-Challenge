@@ -62,7 +62,8 @@ const Header = ({ user, modalIsOpen, setModalIsOpen }) => {
       await postUserPoints(coinsAmount);
       notifySuccess();
       setLoading(false);
-      router.reload('/');
+      router.replace(router.asPath);
+      setModalIsOpen(false);
     } catch (error) {
       setLoading(false);
       notifyFail();

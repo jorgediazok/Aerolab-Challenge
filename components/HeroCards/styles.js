@@ -7,11 +7,20 @@ export const HeroCardsContainer = styled.section`
   justify-content: center;
   align-items: center;
   height: 528px;
-  margin-top: 228px;
+  margin-top: 280px;
   z-index: 0;
   background: linear-gradient(90deg, #176feb, #ff80ff);
   /* opacity: 50%; */
-  margin-bottom: 235px;
+  margin-bottom: 180px;
+
+  //LAPTOP
+  //LAPTOP
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    max-width: 100vw;
+    height: 400px;
+  }
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     margin-top: -200px;
     width: 100% !important;

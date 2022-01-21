@@ -8,12 +8,19 @@ export const ProductCard = styled.div`
   align-items: center;
   padding: 0px;
   border: 1px solid #dae4f2;
-  border-radius: 16px 16px 0px 0px;
+  border-radius: 16px;
   width: 348px;
   height: 506px;
   left: 0px;
   top: 0px;
-  @media (max-width: 450px) {
+
+  //TABLET
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    width: 275px;
+  }
+
+  //MOBILE
+  @media screen and (max-width: 450px) {
     width: 322px;
     height: 506px;
   }
@@ -41,6 +48,19 @@ export const ProductCardRedeemOnHover = styled.div`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
   color: ${colors.neutrals.grey000};
+
+  //LAPTOP
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    left: -12px;
+    right: -12px;
+  }
+
+  //MOBILE
+  @media screen and (max-width: 450px) {
+    left: -34px;
+    right: -34px;
+  }
+
   &:hover {
     opacity: 1;
     transition: all 0.2s ease-in;
@@ -130,7 +150,7 @@ export const ProductCardCTA = styled.button`
     rgba(255, 128, 255, 0.7) 106.58%
   );
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
-  border-radius: 16px;
+  border-radius: 0px 0px 16px 16px;
   margin-top: 16px;
   font-family: ${typeStyles.desktop.text.textL1First.family};
   line-height: ${typeStyles.desktop.text.textL1First.lineHeight};
@@ -138,6 +158,14 @@ export const ProductCardCTA = styled.button`
   font-weight: ${typeStyles.desktop.text.textL1First.weight};
   color: ${colors.neutrals.grey000};
   cursor: pointer;
+
+  //LAPTOP
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    width: 100%;
+    border-radius: 0px 0px 16px 16px;
+  }
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     height: 56px;
     width: 100%;
@@ -156,16 +184,24 @@ export const ProductCardCTADisabled = styled.button`
   height: 59px;
   background: ${colors.neutrals.grey200};
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
-  border-radius: 16px;
+  border-radius: 0px 0px 16px 16px;
   margin-top: 16px;
   font-family: ${typeStyles.desktop.text.textL1First.family};
   line-height: ${typeStyles.desktop.text.textL1First.lineHeight};
   font-size: ${typeStyles.desktop.text.textL1First.size};
   font-weight: ${typeStyles.desktop.text.textL1First.weight};
   color: ${colors.neutrals.grey600};
+
+  //LAPTOP
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    width: 100%;
+    border-radius: 0px 0px 16px 16px;
+  }
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     height: 56px;
     width: 100%;
-    border-radius: 0px;
+    border-radius: 0px 0px 16px 16px;
   }
 `;
