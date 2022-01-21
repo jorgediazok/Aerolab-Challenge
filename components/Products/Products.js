@@ -166,7 +166,7 @@ const Products = ({
         {isBreakpoint ? null : (
           <ProductFiltersText>Filter by:</ProductFiltersText>
         )}
-        <ProductFiltersInput name='input' onClick={sortByCategory}>
+        <ProductFiltersInput name='input' onChange={sortByCategory}>
           {categories.map((category, index) => (
             <ProductFiltersInputOption key={index}>
               {category}
