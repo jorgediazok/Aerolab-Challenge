@@ -137,6 +137,8 @@ export const ProductFiltersInput = styled.select`
   margin-right: 40px;
   background-color: ${colors.neutrals.grey000};
   font-size: 16px;
+  cursor: pointer;
+
   //TABLET
   @media screen and (min-width: 767px) and (max-width: 1023px) {
     width: 215px;
@@ -177,6 +179,7 @@ export const ProductsFilterSortSelectorSelectedOne = styled.button`
   margin-right: 12px;
   font-size: 18px;
   color: ${(props) => props.isColorActive};
+  cursor: pointer;
 
   //TABLET
   @media screen and (min-width: 767px) and (max-width: 1023px) {
@@ -207,6 +210,7 @@ export const ProductsFilterSortSelectorSelectedTwo = styled.button`
   margin-right: 12px;
   font-size: 18px;
   color: ${(props) => props.isColorActiveTwo};
+  cursor: pointer;
 
   //TABLET
   @media screen and (min-width: 767px) and (max-width: 1023px) {
@@ -236,6 +240,7 @@ export const ProductsFilterSortSelectorSelectedThree = styled.button`
   margin-right: 12px;
   font-size: 18px;
   color: ${(props) => props.isColorActiveThree};
+  cursor: pointer;
 
   //TABLET
   @media screen and (min-width: 767px) and (max-width: 1023px) {

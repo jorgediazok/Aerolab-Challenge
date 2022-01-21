@@ -57,11 +57,10 @@ const Products = ({
 
   // GET CURRENT PRODUCTS
 
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [filteredProducts, setFilteredProducts] = useState(
     products.slice(0, 16)
   );
-  const [filterIsActive, setFilterIsActive] = useState(false);
+  const [filterIsActive, setFilterIsActive] = useState(true);
   const [filterIsActiveTwo, setFilterIsActiveTwo] = useState(false);
   const [filterIsActiveThree, setFilterIsActiveThree] = useState(false);
 
@@ -90,10 +89,6 @@ const Products = ({
       );
     }
   };
-
-  useEffect(() => {
-    setFilterIsActive(true);
-  }, []);
 
   const sortByMostRecent = (e) => {
     if (e.target.name === 'mostRecent') {
@@ -149,11 +144,14 @@ const Products = ({
     }
   };
 
-  const sortByCategory = () => {
+  const sortByCategory = (e) => {
+    if (e.target.value === 'All Products') {
+      setFilteredProducts(products.slice(0, 16));
+      return;
+    }
+
     const filtered = products.filter(
-      (product) =>
-        selectedCategory === 'All Products' ||
-        product.category === selectedCategory
+      (product) => product.category === e.target.value
     );
     setFilteredProducts(filtered.slice(0, 16));
   };
@@ -168,10 +166,7 @@ const Products = ({
         {isBreakpoint ? null : (
           <ProductFiltersText>Filter by:</ProductFiltersText>
         )}
-        <ProductFiltersInput
-          onChange={(e) => setSelectedCategory(e.target.value)}
-          onClick={sortByCategory}
-        >
+        <ProductFiltersInput name='input' onClick={sortByCategory}>
           {categories.map((category, index) => (
             <ProductFiltersInputOption key={index}>
               {category}
