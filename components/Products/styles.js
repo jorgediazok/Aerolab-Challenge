@@ -5,17 +5,31 @@ export const ProductsSectionContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
   background: ${colors.neutrals.grey000};
+  margin-top: 900px;
+
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    max-width: 100vw !important;
+    justify-content: center;
+  }
 
   //MOBILE
   @media (max-width: 450px) {
     max-width: 100vw !important;
     justify-content: center;
-    margin-top: -450px;
+    margin-top: 80px;
   }
 `;
 
 export const ProductsTitleContainer = styled.div`
   display: flex;
+
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    justify-content: flex-start;
+    margin-left: -260px;
+    margin-bottom: -20px;
+  }
 
   //MOBILE
   @media screen and (max-width: 450px) {
@@ -83,11 +97,18 @@ export const ProductFiltersContainer = styled.div`
   align-items: center;
   margin-bottom: 30px;
 
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    flex-wrap: wrap;
+    z-index: 10;
+    border-radius: 0px 0px 16px 16px;
+  }
+
   //MOBILE
   @media screen and (max-width: 450px) {
     flex-wrap: wrap;
     width: 350px;
-    z-index: 10;
+    z-index: 9999999999999999;
   }
 `;
 
@@ -116,12 +137,19 @@ export const ProductFiltersInput = styled.select`
   margin-right: 40px;
   background-color: ${colors.neutrals.grey000};
   font-size: 16px;
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    width: 215px;
+  }
 
   //LAPTOP
-
   @media screen and (min-width: 1024px) and (max-width: 1919px) {
     width: 200px;
     height: 50px;
+  }
+
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
   }
 
   //MOBILE
@@ -150,6 +178,12 @@ export const ProductsFilterSortSelectorSelectedOne = styled.button`
   font-size: 18px;
   color: ${(props) => props.isColorActive};
 
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    width: 150px;
+    margin-left: -25px;
+  }
+
   //MOBILE
   @media (max-width: 450px) {
     width: 136px;
@@ -173,6 +207,11 @@ export const ProductsFilterSortSelectorSelectedTwo = styled.button`
   margin-right: 12px;
   font-size: 18px;
   color: ${(props) => props.isColorActiveTwo};
+
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    width: 152px;
+  }
 
   //MOBILE
   @media (max-width: 450px) {
@@ -198,6 +237,11 @@ export const ProductsFilterSortSelectorSelectedThree = styled.button`
   font-size: 18px;
   color: ${(props) => props.isColorActiveThree};
 
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    width: 158px;
+  }
+
   //MOBILE
   @media (max-width: 450px) {
     width: 136px;
@@ -222,6 +266,14 @@ export const ProductsFilterPaginationContainer = styled.div`
     margin-left: 10px;
     height: 50px;
     width: 205px;
+  }
+
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    margin-left: 35%;
+    align-items: center;
+    margin-top: 50px;
+    border-radius: 0px 0px 16px 16px;
   }
 
   //MOBILE
@@ -288,10 +340,16 @@ export const ProductsDataContainer = styled.div`
   flex-wrap: wrap;
   gap: 24px;
 
+  //LAPTOP
   @media screen and (min-width: 1024px) and (max-width: 1919px) {
-    gap: 29px;
+    gap: 14px;
     justify-content: center;
     margin-left: 2px;
+  }
+
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    gap: 10px;
   }
 
   //MOBILE

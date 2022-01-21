@@ -6,6 +6,13 @@ export const HeroContainer = styled.main`
   display: flex;
   justify-content: space-between;
 
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   //MOBILE
   @media screen and (max-width: 450px) {
     flex-direction: column;
@@ -19,6 +26,11 @@ export const HeroLeftContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-top: 70px;
+
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    align-items: center;
+  }
 
   //MOBILE
   @media screen and (max-width: 450px) {
@@ -181,6 +193,15 @@ export const HeroImageBackground = styled.div`
   margin-top: 120px;
   border-radius: 100px;
 
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    margin-top: 350px;
+    width: 100vw !important;
+    border-radius: 0;
+    height: 670px;
+    margin-bottom: -900px;
+  }
+
   //MOBILE
   @media screen and (max-width: 450px) {
     width: 100vw !important;
@@ -200,7 +221,7 @@ export const HeroImage = styled.img`
 
   //LAPTOP
   @media screen and (min-width: 1024px) and (max-width: 1919px) {
-    right: 20px;
+    right: 35px;
   }
 `;
 
@@ -208,6 +229,11 @@ export const HeroImageResponsive = styled.img`
   position: absolute;
   width: 100vw;
   top: 580px;
-
   z-index: 9999999 !important;
+
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    margin-top: 200px;
+    top: 540px;
+  }
 `;

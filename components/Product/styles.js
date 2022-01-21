@@ -11,12 +11,16 @@ export const ProductCard = styled.div`
   border-radius: 16px;
   width: 348px;
   height: 506px;
-  left: 0px;
-  top: 0px;
 
-  //TABLET
+  //LAPTOP
   @media screen and (min-width: 1024px) and (max-width: 1919px) {
     width: 275px;
+  }
+
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    width: 236px;
+    height: 380px;
   }
 
   //MOBILE
@@ -55,6 +59,12 @@ export const ProductCardRedeemOnHover = styled.div`
     right: -12px;
   }
 
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    left: -2px;
+    right: -2px;
+  }
+
   //MOBILE
   @media screen and (max-width: 450px) {
     left: -34px;
@@ -91,6 +101,12 @@ export const ProductCardRedeemOnHoverButton = styled.button`
   color: ${colors.neutrals.grey000};
   opacity: 1 !important;
   cursor: pointer;
+
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    width: 190px;
+  }
+
   &:disabled {
     background: ${colors.neutrals.grey200};
     color: ${colors.neutrals.grey600};
@@ -165,6 +181,13 @@ export const ProductCardCTA = styled.button`
     border-radius: 0px 0px 16px 16px;
   }
 
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    width: 100%;
+    border-radius: 0px 0px 16px 16px;
+    font-size: 16px;
+  }
+
   //MOBILE
   @media screen and (max-width: 450px) {
     height: 56px;
@@ -194,6 +217,12 @@ export const ProductCardCTADisabled = styled.button`
 
   //LAPTOP
   @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    width: 100%;
+    border-radius: 0px 0px 16px 16px;
+  }
+
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
     width: 100%;
     border-radius: 0px 0px 16px 16px;
   }

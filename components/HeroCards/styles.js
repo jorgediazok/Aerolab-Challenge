@@ -2,27 +2,37 @@ import styled from 'styled-components';
 import { colors, typeStyles } from '../../styles/themes';
 
 export const HeroCardsContainer = styled.section`
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 528px;
   margin-top: 280px;
-  z-index: 0;
+  z-index: 100;
+  min-width: 100vw !important;
+  position: absolute !important;
+  top: 700px;
   background: linear-gradient(90deg, #176feb, #ff80ff);
-  /* opacity: 50%; */
+  opacity: 90%;
   margin-bottom: 180px;
 
   //LAPTOP
-  //LAPTOP
   @media screen and (min-width: 1024px) and (max-width: 1919px) {
-    max-width: 100vw;
-    height: 400px;
+    height: 350px;
+  }
+
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    border-radius: 0px 0px 16px 16px;
+    background: transparent;
+    margin-top: 0px;
+    width: 100vw !important;
+    display: flex;
+    justify-content: space-around;
   }
 
   //MOBILE
   @media screen and (max-width: 450px) {
-    margin-top: -200px;
+    margin-top: -80px;
     width: 100% !important;
     flex-direction: column;
     justify-content: center;
@@ -32,7 +42,6 @@ export const HeroCardsContainer = styled.section`
     height: 1900px;
     gap: 24px;
     background: transparent;
-    margin-top: -1560px;
   }
 `;
 
@@ -48,6 +57,12 @@ export const IntroCard = styled.div`
   overflow: visible;
   border: 1px solid #dae4f2;
   box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.05);
+
+  //LAPTOP
+  @media screen and (min-width: 1024px) and (max-width: 1919px) {
+    /* width: 432px;
+    height: 575px; */
+  }
 `;
 
 export const IntroCardResponsive = styled.div`
@@ -61,6 +76,12 @@ export const IntroCardResponsive = styled.div`
   background-color: ${colors.neutrals.grey000};
   border: 1px solid #dae4f2;
   box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.05);
+
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    width: 250px;
+    margin-top: 1180px;
+  }
 `;
 
 export const IntroCardTop = styled.div`
@@ -144,6 +165,11 @@ export const IntroCardContentResponsive = styled.p`
   font-weight: ${typeStyles.mobile.text.textL1First.weight};
   line-height: ${typeStyles.mobile.text.textL1First.lineHeight};
   width: 263px;
+
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    width: 190px;
+  }
 `;
 
 export const IntroCardIllustration = styled.img`
@@ -165,6 +191,12 @@ export const IntroCardIllustrationResponsive = styled.img`
     rgba(255, 128, 255, 0.5) 106.58%
   );
 
+  //TABLET
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    border-radius: 16px 16px 0px 0px;
+  }
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     width: 311px;
     height: 230px;

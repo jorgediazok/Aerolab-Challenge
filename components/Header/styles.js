@@ -10,9 +10,18 @@ export const HeaderContainer = styled.header`
 
 export const AeroLogo = styled.img`
   width: 200px;
+
+  //LAPTOP
   @media screen and (min-width: 1024px) and (max-width: 1919px) {
     width: 150px;
   }
+
+  //TABLET
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 100px;
+  }
+
+  //MOBILE
   @media screen and (max-width: 450px) {
     width: 45px;
     height: 42px;
@@ -82,6 +91,10 @@ export const Modal = styled.div`
   }
 
   //TABLET
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    top: 120px;
+    right: 25px;
+  }
 
   //MOBILE
   @media screen and (max-width: 450px) {

@@ -94,7 +94,7 @@ const HeroCards = () => {
   const isBreakpoint = useMediaQuery(1024);
 
   return (
-    <HeroCardsContainer>
+    <HeroCardsContainer className='hero_cards_container'>
       {isBreakpoint
         ? cardsMobileData.map((card) => (
             <HeroCardResponsive card={card} key={card.id} />

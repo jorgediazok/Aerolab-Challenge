@@ -12,36 +12,38 @@ export default function Home({ products, user, history, redeem, points }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   return (
-    <Layout>
-      <Head>
-        <title>Aerolab Store</title>
-        <meta
-          name='Aerolab Store'
-          content='E-Commerce created with Next Js. We Sell all kind of electronic products for your home'
+    <>
+      <Layout>
+        <Head>
+          <title>Aerolab Store</title>
+          <meta
+            name='Aerolab Store'
+            content='E-Commerce created with Next Js. We Sell all kind of electronic products for your home'
+          />
+          <link rel='icon' href='/favicon.svg' />
+        </Head>
+        <Header
+          user={user}
+          modalIsOpen={modalIsOpen}
+          setModalIsOpen={setModalIsOpen}
+          history={history}
+          redeem={redeem}
+          points={points}
         />
-        <link rel='icon' href='/favicon.svg' />
-      </Head>
-      <Header
-        user={user}
-        modalIsOpen={modalIsOpen}
-        setModalIsOpen={setModalIsOpen}
-        history={history}
-        redeem={redeem}
-        points={points}
-      />
-      <Hero />
+        <Hero />
+        <Products
+          products={products}
+          user={user}
+          loading={loading}
+          setLoading={setLoading}
+          totalProducts={products.length}
+          points={points}
+          history={history}
+        />
+        <Footer />
+      </Layout>
       <HeroCards />
-      <Products
-        products={products}
-        user={user}
-        loading={loading}
-        setLoading={setLoading}
-        totalProducts={products.length}
-        points={points}
-        history={history}
-      />
-      <Footer />
-    </Layout>
+    </>
   );
 }
 
