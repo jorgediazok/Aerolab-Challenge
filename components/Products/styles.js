@@ -9,13 +9,13 @@ export const ProductsSectionContainer = styled.section`
 
   //TABLET
   @media screen and (min-width: 767px) and (max-width: 1023px) {
-    max-width: 100vw !important;
+    max-width: 100vw;
     justify-content: center;
   }
 
   //MOBILE
   @media (max-width: 450px) {
-    max-width: 100vw !important;
+    max-width: 100vw;
     justify-content: center;
     margin-top: 80px;
   }
@@ -189,10 +189,10 @@ export const ProductsFilterSortSelectorSelectedOne = styled.button`
 
   //MOBILE
   @media (max-width: 450px) {
-    width: 136px;
+    width: 125px;
     height: 40px;
     margin-top: 20px;
-    font-size: 15px;
+    font-size: 12px;
   }
 `;
 
@@ -219,10 +219,10 @@ export const ProductsFilterSortSelectorSelectedTwo = styled.button`
 
   //MOBILE
   @media (max-width: 450px) {
-    width: 136px;
+    width: 125px;
     height: 40px;
     margin-top: 20px;
-    font-size: 15px;
+    font-size: 12px;
   }
 `;
 
@@ -249,10 +249,11 @@ export const ProductsFilterSortSelectorSelectedThree = styled.button`
 
   //MOBILE
   @media (max-width: 450px) {
-    width: 136px;
+    width: 125px;
     height: 40px;
     margin-top: 20px;
-    font-size: 14px;
+    margin-bottom: 40px;
+    font-size: 12px;
   }
 `;
 
@@ -283,9 +284,8 @@ export const ProductsFilterPaginationContainer = styled.div`
 
   //MOBILE
   @media (max-width: 450px) {
-    margin-top: 30px;
     height: 50px;
-    margin-left: 50px;
+    margin: auto;
   }
 `;
 
@@ -343,13 +343,14 @@ export const ProductsFilterPaginationIconTwo = styled.img`
 export const ProductsDataContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: 24px;
+  width: 100%;
 
   //LAPTOP
   @media screen and (min-width: 1024px) and (max-width: 1919px) {
     gap: 14px;
-    justify-content: center;
-    margin-left: 2px;
   }
 
   //TABLET
@@ -360,9 +361,6 @@ export const ProductsDataContainer = styled.div`
   //MOBILE
   @media screen and (max-width: 450px) {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
   }
 `;
 

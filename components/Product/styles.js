@@ -25,7 +25,7 @@ export const ProductCard = styled.div`
 
   //MOBILE
   @media screen and (max-width: 450px) {
-    width: 322px;
+    width: 100%;
     height: 506px;
   }
 `;
@@ -69,6 +69,12 @@ export const ProductCardRedeemOnHover = styled.div`
   @media screen and (max-width: 450px) {
     left: -34px;
     right: -34px;
+  }
+
+  //MOBILE XS
+  @media screen and (max-width: 320px) {
+    left: -11px;
+    right: -11px;
   }
 
   &:hover {

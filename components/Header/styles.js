@@ -102,6 +102,12 @@ export const Modal = styled.div`
     top: 100px;
     right: 20px;
   }
+
+  //MOBILE XS
+  @media screen and (max-width: 320px) {
+    width: 100vw;
+    right: 0px;
+  }
 `;
 
 export const ModalTop = styled.div`
